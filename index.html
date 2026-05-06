@@ -1,0 +1,1526 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jarksarn — จักสาน · Handwoven from Thailand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper:   '#FAFAF7',
+          ink:     '#2A2A2A',
+          rattan:  '#8B6F47',
+          sand:    '#B8A892',
+          mist:    '#EFEAE0',
+          line:    '#E5DFD2',
+        },
+        fontFamily: {
+          serif: ['"Cormorant Garamond"','serif'],
+          sans:  ['Inter','"IBM Plex Sans Thai"','sans-serif'],
+          thai:  ['"IBM Plex Sans Thai"','Inter','sans-serif'],
+          mono:  ['"IBM Plex Mono"','monospace'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  :root { --paper:#FAFAF7; --ink:#2A2A2A; --rattan:#8B6F47; --sand:#B8A892; --line:#E5DFD2; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--paper); color:var(--ink); font-family:Inter,"IBM Plex Sans Thai",sans-serif; -webkit-font-smoothing:antialiased; }
+  .font-serif-it { font-family:"Cormorant Garamond",serif; font-style:italic; font-weight:400; }
+  .hairline { border-color: var(--line); }
+  .lift { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; }
+  .lift:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -28px rgba(42,42,42,.35); }
+  .img-zoom { transition: transform 1.1s cubic-bezier(.2,.8,.2,1); }
+  .group:hover .img-zoom { transform: scale(1.04); }
+  .underline-grow { background-image: linear-gradient(currentColor,currentColor); background-position:0 100%; background-repeat:no-repeat; background-size:0% 1px; transition: background-size .35s; }
+  .underline-grow:hover { background-size:100% 1px; }
+  .marquee { display:flex; gap:3rem; animation: scroll 60s linear infinite; }
+  @keyframes scroll { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  .reveal { opacity:0; transform: translateY(8px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity:1; transform: none; }
+  .scroll-snap-x { scroll-snap-type:x mandatory; }
+  .scroll-snap-x > * { scroll-snap-align:start; }
+  .no-scrollbar::-webkit-scrollbar{display:none}
+  .no-scrollbar{scrollbar-width:none}
+  /* Page swap */
+  .page { display:none; }
+  .page.active { display:block; }
+  /* Drawer */
+  .drawer { transform: translateX(100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+  .drawer.open { transform: translateX(0); }
+  .scrim { opacity:0; pointer-events:none; transition: opacity .3s; }
+  .scrim.on { opacity:1; pointer-events:auto; }
+  /* Mega menu */
+  .mega { opacity:0; pointer-events:none; transform: translateY(-6px); transition: opacity .25s, transform .25s; }
+  .nav-item:hover .mega, .mega:hover, .mega.open { opacity:1; pointer-events:auto; transform: none; }
+  .chev-rot.rot { transform: rotate(180deg); }
+  .mega-cat .cat-head { transition: color .2s; }
+  .mega-cat:hover .cat-head, .mega-cat.open .cat-head { color: var(--rattan); }
+  .mega-cat.open .cat-sub { display: block; }
+  .mega-cat.open .cat-chev { transform: rotate(45deg); color: var(--rattan); }
+  /* Tab underline */
+  .tab.active { color: var(--ink); }
+  .tab.active::after { transform: scaleX(1); }
+  .tab::after { content:''; display:block; height:1px; background:var(--ink); transform: scaleX(0); transform-origin:left; transition: transform .3s; margin-top:6px; }
+  /* Filter checkbox */
+  .chk { appearance:none; width:14px; height:14px; border:1px solid var(--ink); border-radius:2px; display:inline-block; vertical-align:middle; cursor:pointer; }
+  .chk:checked { background: var(--ink); box-shadow: inset 0 0 0 2px var(--paper); }
+  /* Placeholder weave background */
+  .weave-a { background-color:#E8DFCB; background-image: repeating-linear-gradient(45deg, rgba(139,111,71,.08) 0 6px, transparent 6px 12px), repeating-linear-gradient(-45deg, rgba(139,111,71,.06) 0 6px, transparent 6px 12px); }
+  .weave-b { background-color:#DCD2BB; background-image: repeating-linear-gradient(0deg, rgba(60,45,30,.06) 0 4px, transparent 4px 10px); }
+  .weave-c { background-color:#C9BBA0; background-image: repeating-linear-gradient(90deg, rgba(60,45,30,.07) 0 3px, transparent 3px 9px); }
+  .weave-d { background-color:#B8A892; background-image: repeating-linear-gradient(60deg, rgba(255,255,255,.10) 0 3px, transparent 3px 11px), repeating-linear-gradient(-60deg, rgba(60,45,30,.05) 0 3px, transparent 3px 11px); }
+  .weave-e { background-color:#EADFC8; background-image: radial-gradient(circle at 20% 30%, rgba(139,111,71,.18), transparent 40%), radial-gradient(circle at 80% 70%, rgba(184,168,146,.35), transparent 50%); }
+  .weave-f { background-color:#D6C7AB; background-image: repeating-linear-gradient(30deg, rgba(60,45,30,.08) 0 2px, transparent 2px 7px); }
+  .grain::after { content:''; position:absolute; inset:0; background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px); background-size: 3px 3px; mix-blend-mode:multiply; pointer-events:none; }
+  /* Maker portrait */
+  .portrait { background:
+      radial-gradient(circle at 50% 38%, #d6c1a3 0 22%, transparent 23%),
+      radial-gradient(ellipse at 50% 78%, #b89e7a 0 30%, transparent 31%),
+      linear-gradient(180deg,#efe6d3,#d6c7ab);
+  }
+  /* Marquee fade */
+  .fade-edges { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%); }
+  /* Buttons */
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background:#000; }
+  .btn-ghost { border:1px solid var(--ink); color:var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+  .pill { border:1px solid var(--line); border-radius:999px; }
+  /* Thai/EN toggling */
+  [data-th], [data-en] { display:inline; }
+  /* Hide spans that have ONLY one of the attrs (block-style toggles) — spans with both
+     are dynamic-text spans handled by applyLang() and must remain visible. */
+  html[data-lang="en"] [data-th]:not([data-en]) { display:none; }
+  html[data-lang="th"] [data-en]:not([data-th]) { display:none; }
+  /* Specific block toggles */
+  .lang-th, .lang-en { display:block; }
+  html[data-lang="en"] .lang-th { display:none; }
+  html[data-lang="th"] .lang-en { display:none; }
+  /* Smooth section nav active */
+  .nav-link.active { color: var(--ink); }
+</style>
+</head>
+<body class="font-sans text-ink">
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="bg-ink text-paper text-[11px] tracking-[0.18em] uppercase">
+  <div class="max-w-[1320px] mx-auto px-6 py-2 flex items-center justify-between">
+    <span class="hidden sm:inline opacity-70">EST. 2014 · Chiang Mai · Ratchaburi · Bangkok</span>
+    <div class="overflow-hidden flex-1 sm:flex-none sm:w-[520px] fade-edges">
+      <div class="marquee whitespace-nowrap">
+        <span data-th="จัดส่งฟรีทั่วไทยเมื่อสั่งซื้อ ฿1,500 ขึ้นไป" data-en="Free shipping in Thailand on orders over ฿1,500"></span>
+        <span>·</span>
+        <span data-th="งานทำมือทุกชิ้น — ใช้เวลาผลิต 7–14 วัน" data-en="Each piece is made by hand — 7–14 day lead time"></span>
+        <span>·</span>
+        <span data-th="สั่งพิเศษได้ผ่าน LINE @jarksarn" data-en="Custom orders via LINE @jarksarn"></span>
+        <span>·</span>
+        <span data-th="จัดส่งฟรีทั่วไทยเมื่อสั่งซื้อ ฿1,500 ขึ้นไป" data-en="Free shipping in Thailand on orders over ฿1,500"></span>
+        <span>·</span>
+        <span data-th="งานทำมือทุกชิ้น — ใช้เวลาผลิต 7–14 วัน" data-en="Each piece is made by hand — 7–14 day lead time"></span>
+        <span>·</span>
+      </div>
+    </div>
+    <span class="hidden sm:inline opacity-70 tabular-nums">EN · TH</span>
+  </div>
+</div>
+
+<!-- STICKY NAV — two rows: wordmark + utilities, then category tabs -->
+<header id="siteHeader" class="sticky top-0 z-40 bg-paper/95 backdrop-blur border-b hairline">
+  <!-- Row 1 -->
+  <div class="border-b hairline/0">
+    <div class="max-w-[1320px] mx-auto px-6 h-[60px] flex items-center justify-between gap-8 relative">
+      <!-- left: search -->
+      <div class="flex items-center gap-3 text-[13px] flex-1">
+        <button id="searchBtn" class="flex items-center gap-2 text-ink/70 hover:text-ink">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M20 20l-3-3" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span class="text-[13px]" data-th="ค้นหา" data-en="Search"></span>
+        </button>
+      </div>
+      <!-- center: wordmark -->
+      <a href="#home" class="absolute left-1/2 -translate-x-1/2 select-none" data-go="home">
+        <div class="text-center leading-none">
+          <div class="font-serif text-[30px] tracking-[0.02em]">Jarksarn</div>
+          <div class="font-thai text-[11px] tracking-[0.4em] text-rattan -mt-0.5">จักสาน</div>
+        </div>
+      </a>
+      <!-- right: utilities -->
+      <div class="flex items-center gap-5 text-[13px] flex-1 justify-end">
+      <div class="flex items-center pill overflow-hidden text-[11px] tracking-[.18em]">
+        <button class="lang-btn px-2.5 py-1" data-lang="th">TH</button>
+        <button class="lang-btn px-2.5 py-1 bg-ink text-paper" data-lang="en">EN</button>
+      </div>
+      <button class="underline-grow hidden md:inline" data-th="เข้าสู่ระบบ" data-en="Account"></button>
+      <button id="cartBtn" class="flex items-center gap-1.5">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 7z" stroke="currentColor" stroke-width="1.3"/><path d="M9 7a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.3"/></svg>
+        <span data-th="ตะกร้า" data-en="Bag"></span>
+        <span class="ml-0.5 inline-flex items-center justify-center w-[18px] h-[18px] rounded-full bg-ink text-paper text-[10px]" id="cartCount">2</span>
+      </button>
+      </div>
+    </div>
+  </div>
+  <!-- Row 2: category tabs -->
+  <div class="border-t hairline">
+    <div class="max-w-[1320px] mx-auto px-6">
+      <ul id="navTabs" class="flex items-stretch justify-center gap-2 text-[12px] tracking-[.18em] uppercase">
+        <li><a href="#collection" class="nav-tab block px-5 py-4 hover:text-rattan" data-tab="new"><span data-th="คอลเลกชั่นใหม่" data-en="New arrivals"></span></a></li>
+        <li><button class="nav-tab block px-5 py-4 hover:text-rattan" data-tab="living"><span data-th="ห้องนั่งเล่น" data-en="Living"></span></button></li>
+        <li><button class="nav-tab block px-5 py-4 hover:text-rattan" data-tab="kitchen"><span data-th="ครัว & โต๊ะอาหาร" data-en="Kitchen & dining"></span></button></li>
+        <li><button class="nav-tab block px-5 py-4 hover:text-rattan" data-tab="storage"><span data-th="กระเช้า & จัดเก็บ" data-en="Storage"></span></button></li>
+        <li><button class="nav-tab block px-5 py-4 hover:text-rattan" data-tab="accessories"><span data-th="ของแต่งบ้าน" data-en="Accessories"></span></button></li>
+        <li><a href="#about" class="nav-tab block px-5 py-4 hover:text-rattan"><span data-th="เรื่องราว" data-en="Our story"></span></a></li>
+        <li><a href="#footer" class="nav-tab block px-5 py-4 hover:text-rattan"><span data-th="ติดต่อ" data-en="Contact"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Full-width tab panel -->
+  <div id="tabPanel" class="absolute left-0 right-0 top-full bg-paper border-b hairline shadow-[0_30px_60px_-30px_rgba(0,0,0,.18)] hidden">
+    <div class="max-w-[1320px] mx-auto px-6 py-10 grid grid-cols-12 gap-10">
+      <!-- LEFT: 3 sub-columns -->
+      <div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-8" id="tabCols"></div>
+      <!-- RIGHT: contextual image -->
+      <a href="#collection" class="col-span-12 lg:col-span-4 group block relative overflow-hidden h-[320px]" id="tabImage">
+        <div class="absolute inset-0 weave-e grain img-zoom" id="tabImageBg"></div>
+        <svg viewBox="0 0 400 500" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] opacity-70" preserveAspectRatio="xMidYMax meet">
+          <defs><pattern id="tabWeave" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(8)"><path d="M0 7h14M7 0v14" stroke="#6f5836" stroke-width="1.4" fill="none"/></pattern></defs>
+          <ellipse cx="200" cy="450" rx="120" ry="10" fill="rgba(0,0,0,.10)"/>
+          <path d="M100 450 Q95 250 130 180 Q200 110 270 180 Q305 250 300 450 Z" fill="url(#tabWeave)"/>
+        </svg>
+        <div class="absolute top-5 left-5 font-mono text-[10px] tracking-[.2em] text-ink/60" id="tabImageMeta">FW26 LOOKBOOK</div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-paper/95 via-paper/70 to-transparent">
+          <div class="text-[10px] tracking-[.3em] uppercase text-rattan mb-1" id="tabImageEyebrow"></div>
+          <div class="font-serif text-[24px] leading-tight" id="tabImageTitle"></div>
+          <div class="text-[12px] underline-grow inline-block mt-1" id="tabImageCta"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav-tab { position: relative; color: var(--ink); }
+  .nav-tab::after { content:''; position:absolute; left:20px; right:20px; bottom:0; height:1px; background:var(--ink); transform: scaleX(0); transform-origin:center; transition: transform .25s; }
+  .nav-tab.active::after, .nav-tab:hover::after { transform: scaleX(1); }
+  .nav-tab.active { color: var(--ink); }
+  #tabPanel.open { display: block; animation: panel-in .25s ease; }
+  @keyframes panel-in { from { opacity:0; transform: translateY(-4px); } to { opacity:1; transform:none; } }
+</style>
+
+<main>
+<!-- ============================ HOME ============================ -->
+<section class="page active" data-page="home" id="home">
+
+  <!-- HERO -->
+  <section class="relative">
+    <div class="grid grid-cols-12 gap-0 border-b hairline">
+      <!-- Hero image -->
+      <div class="col-span-12 lg:col-span-8 relative overflow-hidden" data-comment-anchor="134a5142aa-div">
+        <div class="weave-e relative grain h-[68vh] min-h-[520px] img-zoom">
+          <!-- Diegetic overlay graphics -->
+          <div class="absolute inset-0">
+            <!-- silhouette of a basket -->
+            <svg viewBox="0 0 800 600" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] opacity-60" preserveAspectRatio="xMidYMax meet">
+              <defs>
+                <pattern id="weave" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
+                  <path d="M0 7h14M7 0v14" stroke="#6f5836" stroke-width="1.4" fill="none"/>
+                </pattern>
+              </defs>
+              <ellipse cx="400" cy="540" rx="240" ry="22" fill="rgba(0,0,0,.12)"/>
+              <path d="M210 540 Q200 320 260 220 Q400 100 540 220 Q600 320 590 540 Z" fill="url(#weave)"/>
+              <path d="M260 220 Q400 160 540 220" fill="none" stroke="#5a4528" stroke-width="2"/>
+              <path d="M250 280 Q400 230 550 280" fill="none" stroke="#5a4528" stroke-width="1.4" opacity=".6"/>
+              <path d="M240 360 Q400 310 560 360" fill="none" stroke="#5a4528" stroke-width="1.4" opacity=".5"/>
+              <path d="M230 440 Q400 390 570 440" fill="none" stroke="#5a4528" stroke-width="1.4" opacity=".4"/>
+            </svg>
+            <span class="absolute top-4 left-5 font-mono text-[10px] tracking-[.2em] text-ink/50">FIG. 01 — RATTAN, NATURAL · 36×42 CM</span>
+            <span class="absolute bottom-4 right-5 font-mono text-[10px] tracking-[.2em] text-ink/50">PHOTOGRAPHY · CHIANG MAI ATELIER</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero copy -->
+      <div class="col-span-12 lg:col-span-4 px-8 lg:px-12 py-14 lg:py-20 flex flex-col justify-between bg-paper">
+        <div>
+          <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-6 flex items-center gap-3">
+            <span>FW26</span><span class="w-8 h-px bg-rattan"></span>
+            <span data-th="คอลเลกชั่นใหม่" data-en="New collection"></span>
+          </div>
+          <h1 class="font-serif text-[clamp(40px,5vw,68px)] leading-[1.02] tracking-[-0.01em]">
+            <span class="lang-th font-thai font-light">หัตถกรรมที่<br/><span class="font-serif-it text-rattan">หายใจ</span><br/>กับบ้านของคุณ</span>
+            <span class="lang-en">Woven<br/><span class="font-serif-it text-rattan">slowly,</span><br/>lived with daily.</span>
+          </h1>
+          <p class="mt-6 max-w-md text-[15px] leading-[1.7] text-ink/80">
+            <span data-th="งานจักสานหวาย ไม้ไผ่ ผักตบ และกก สานด้วยมือโดยช่างฝีมือไทยจาก 6 หมู่บ้าน เราเลือกวัสดุจากท้องถิ่น ใช้เทคนิคดั้งเดิม และส่งตรงถึงบ้านคุณ" data-en="Wickerwork in rattan, bamboo, water hyacinth and sedge — woven by hand across six villages in Thailand. Local materials, inherited technique, delivered direct to your home."></span>
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3" data-comment-anchor="c8c69696de-div">
+            <a href="#collection" class="btn-primary px-6 py-3 text-[13px] tracking-wider uppercase">
+              <span data-th="ช้อปคอลเลกชั่น" data-en="Shop the collection"></span>
+            </a>
+            <a href="#craft" class="btn-ghost px-6 py-3 text-[13px] tracking-wider uppercase">
+              <span data-th="งานช่างของเรา" data-en="Meet the craft"></span>
+            </a>
+          </div>
+        </div>
+        <!-- footer of hero panel -->
+        <div class="mt-12 pt-6 border-t hairline grid grid-cols-3 gap-4 text-[11px] tracking-[.18em] uppercase text-ink/60" data-comment-anchor="05d71a5206-div">
+          <div><div class="font-serif text-[28px] text-ink not-italic mb-1">12</div><span data-th="ปีของครอบครัว" data-en="years of family"></span></div>
+          <div><div class="font-serif text-[28px] text-ink mb-1">37</div><span data-th="ช่างฝีมือ" data-en="artisans"></span></div>
+          <div><div class="font-serif text-[28px] text-ink mb-1">6</div><span data-th="หมู่บ้าน" data-en="villages"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES STRIP -->
+  <section class="border-b hairline" data-comment-anchor="48424501cb-section">
+    <div class="max-w-[1320px] mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-[12px] tracking-wide">
+      <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-rattan"></span><span data-th="ส่งฟรีในไทย ฿1,500+" data-en="Free TH shipping ฿1,500+"></span></div>
+      <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-rattan"></span><span data-th="ผลิต 7–14 วัน" data-en="Made in 7–14 days"></span></div>
+      <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-rattan"></span><span data-th="วัสดุธรรมชาติ 100%" data-en="100% natural fibres"></span></div>
+      <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-rattan"></span><span data-th="คืน/เปลี่ยนได้ใน 14 วัน" data-en="14-day returns"></span></div>
+    </div>
+  </section>
+
+  <!-- FEATURED PIECES -->
+  <section class="max-w-[1320px] mx-auto px-6 py-20 lg:py-28" data-comment-anchor="0d50e9e576-section">
+    <div class="flex items-end justify-between mb-10 gap-6 flex-wrap">
+      <div>
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="ชิ้นเด่นประจำเดือน" data-en="Selected this season"></div>
+        <h2 class="font-serif text-[42px] md:text-[56px] leading-[1] tracking-tight">
+          <span data-th="ชิ้นที่เราภูมิใจนำเสนอ" data-en="Pieces we're proud of."></span>
+        </h2>
+      </div>
+      <a href="#collection" class="text-[13px] underline-grow flex items-center gap-2">
+        <span data-th="ดูทั้งคอลเลกชั่น" data-en="View all 64 pieces"></span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="featuredGrid"></div>
+  </section>
+
+  <!-- OUR CRAFT (split storytelling) -->
+  <section id="craft" class="bg-mist/50 border-y hairline">
+    <div class="max-w-[1320px] mx-auto px-6 py-24 grid grid-cols-12 gap-10 items-center" data-comment-anchor="7e9939875e-div">
+      <div class="col-span-12 lg:col-span-6">
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-8">
+            <div class="weave-a grain relative h-[420px]">
+              <span class="absolute top-3 left-3 font-mono text-[10px] tracking-[.2em] text-ink/60">PLATE I — HANDS AT WORK</span>
+              <svg viewBox="0 0 200 200" class="absolute bottom-6 right-6 w-24 h-24 opacity-70">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#5a4528" stroke-width="0.6"/>
+                <text x="100" y="55" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#5a4528">EST · 2014</text>
+                <text x="100" y="155" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#5a4528">CHIANG MAI · TH</text>
+                <path d="M60 100 Q100 80 140 100 Q100 120 60 100" fill="none" stroke="#5a4528" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+          <div class="col-span-4 grid grid-rows-2 gap-3">
+            <div class="weave-b grain relative">
+              <span class="absolute top-2 left-2 font-mono text-[9px] tracking-[.2em] text-ink/60">II</span>
+            </div>
+            <div class="weave-c grain relative">
+              <span class="absolute top-2 left-2 font-mono text-[9px] tracking-[.2em] text-ink/60">III</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-4" data-th="งานช่างของเรา" data-en="Our craft"></div>
+        <h2 class="font-serif text-[44px] leading-[1.05] tracking-tight mb-6">
+          <span class="lang-th font-thai font-light">สามรุ่นของครอบครัว<br/><span class="font-serif-it text-rattan">หนึ่งฝีมือ</span></span>
+          <span class="lang-en">Three generations,<br/><span class="font-serif-it text-rattan">one pair of hands</span></span>
+        </h2>
+        <div class="space-y-5 text-[15px] leading-[1.8] text-ink/80">
+          <p data-th="คุณยายเริ่มสานกระเช้าหวายในเรือนไม้หลังเล็กที่ราชบุรีเมื่อปี 2535 วันนี้รุ่นที่สามของครอบครัวยังคงสานต่อด้วยวัสดุชุดเดิม เครื่องมือชุดเดิม และจังหวะมือที่ส่งต่อกันมา" data-en="Our grandmother started weaving rattan baskets in a small wooden house in Ratchaburi in 1992. Today the third generation of the family continues with the same materials, the same tools, and a rhythm of the hands that has been passed down."></p>
+          <p data-th="ทุกชิ้นที่ออกจากบ้าน Jarksarn จะมีลายเซ็นมือของช่างที่สาน — ไม่มีสองชิ้นที่เหมือนกัน เราเชื่อว่านั่นคือความหรูหราที่แท้จริงของงานทำมือ" data-en="Every piece that leaves the Jarksarn studio carries the signature of the maker who wove it — no two are alike. To us that is the real luxury of the handmade."></p>
+        </div>
+        <div class="mt-8 flex items-center gap-6">
+          <a href="#about" class="btn-ghost px-5 py-2.5 text-[12px] tracking-wider uppercase">
+            <span data-th="อ่านต่อ" data-en="Read more"></span>
+          </a>
+          <div class="flex items-center gap-3 text-[12px] text-ink/70">
+            <div class="portrait w-8 h-8 rounded-full ring-1 ring-line"></div>
+            <span data-th="โดย คุณแม่สมพร — รุ่นที่สอง" data-en="From Khun Somporn — second generation"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE BY ROOM -->
+  <section class="max-w-[1320px] mx-auto px-6 py-20 lg:py-28" data-comment-anchor="16eed7abc9-section">
+    <div class="grid grid-cols-12 gap-6 items-end mb-10">
+      <div class="col-span-12 md:col-span-6">
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="ค้นหาตามห้อง" data-en="Browse by room"></div>
+        <h2 class="font-serif text-[44px] md:text-[56px] leading-[1.02] tracking-tight">
+          <span data-th="หาของให้กับทุกมุมของบ้าน" data-en="A piece for every corner."></span>
+        </h2>
+      </div>
+      <div class="col-span-12 md:col-span-6 md:text-right text-[14px] text-ink/70 max-w-md md:ml-auto">
+        <span data-th="เลือกตามการใช้งาน — เราจัดเป็นห้องให้แล้ว เพื่อให้คุณนึกภาพได้ง่ายว่าจะวางไว้ตรงไหน" data-en="Sorted by where things live — so you can picture exactly where each piece belongs."></span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6">
+      <a href="#collection" class="col-span-12 md:col-span-7 group block lift">
+        <div class="weave-e grain relative h-[480px] overflow-hidden">
+          <div class="absolute inset-0 img-zoom weave-e"></div>
+          <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">ROOM 01</span>
+          <div class="absolute bottom-0 left-0 p-8 text-ink">
+            <div class="font-serif text-[40px] leading-none mb-1" data-th="ห้องนั่งเล่น" data-en="Living"></div>
+            <div class="text-[12px] tracking-wider opacity-70">22 <span data-th="ชิ้น" data-en="pieces"></span></div>
+          </div>
+          <span class="absolute bottom-6 right-6 text-[12px] tracking-wider underline-grow">Explore →</span>
+        </div>
+      </a>
+      <a href="#collection" class="col-span-12 md:col-span-5 group block lift">
+        <div class="weave-c grain relative h-[480px] overflow-hidden">
+          <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">ROOM 02</span>
+          <div class="absolute bottom-0 left-0 p-8 text-ink">
+            <div class="font-serif text-[40px] leading-none mb-1" data-th="ครัว & โต๊ะอาหาร" data-en="Kitchen"></div>
+            <div class="text-[12px] tracking-wider opacity-70">18 <span data-th="ชิ้น" data-en="pieces"></span></div>
+          </div>
+          <span class="absolute bottom-6 right-6 text-[12px] tracking-wider underline-grow">Explore →</span>
+        </div>
+      </a>
+      <a href="#collection" class="col-span-12 md:col-span-5 group block lift">
+        <div class="weave-d grain relative h-[420px] overflow-hidden">
+          <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-paper/80">ROOM 03</span>
+          <div class="absolute bottom-0 left-0 p-8 text-paper">
+            <div class="font-serif text-[40px] leading-none mb-1" data-th="ห้องเก็บของ" data-en="Storage"></div>
+            <div class="text-[12px] tracking-wider opacity-80">14 <span data-th="ชิ้น" data-en="pieces"></span></div>
+          </div>
+          <span class="absolute bottom-6 right-6 text-[12px] tracking-wider text-paper underline-grow">Explore →</span>
+        </div>
+      </a>
+      <a href="#collection" class="col-span-12 md:col-span-7 group block lift">
+        <div class="weave-f grain relative h-[420px] overflow-hidden">
+          <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">ROOM 04</span>
+          <div class="absolute bottom-0 left-0 p-8 text-ink">
+            <div class="font-serif text-[40px] leading-none mb-1" data-th="ของแต่งบ้าน & กระเป๋า" data-en="Accessories"></div>
+            <div class="text-[12px] tracking-wider opacity-70">10 <span data-th="ชิ้น" data-en="pieces"></span></div>
+          </div>
+          <span class="absolute bottom-6 right-6 text-[12px] tracking-wider underline-grow">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- EDITORIAL QUOTE -->
+  <section class="border-y hairline bg-paper">
+    <div class="max-w-[1100px] mx-auto px-6 py-24 text-center">
+      <svg width="40" height="40" viewBox="0 0 40 40" class="mx-auto mb-8 text-rattan">
+        <path d="M14 26 V18 a4 4 0 0 1 4-4 M26 26 V18 a4 4 0 0 1 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/>
+      </svg>
+      <p class="font-serif text-[clamp(28px,4.2vw,52px)] leading-[1.2] tracking-tight">
+        <span class="lang-th font-thai font-light">"งานสานที่ดี ไม่ได้มาจากเครื่องจักร —<br/>มาจาก<span class="font-serif-it text-rattan italic">เวลา</span> ที่เรายอมเสียให้กับมัน"</span>
+        <span class="lang-en">"Good weaving doesn't come from a machine —<br/>it comes from the <span class="font-serif-it text-rattan italic">time</span> we are willing to give it."</span>
+      </p>
+      <div class="mt-10 text-[12px] tracking-[.25em] uppercase text-ink/60">
+        <span data-th="คุณยายบุญมา · ผู้ก่อตั้ง · ราชบุรี · 2535" data-en="Khun Yai Boonma · founder · Ratchaburi · 1992"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS LOGOS -->
+  <section class="max-w-[1320px] mx-auto px-6 py-12 border-b hairline">
+    <div class="text-center text-[11px] tracking-[.3em] uppercase text-ink/50 mb-6" data-th="เป็นที่กล่าวถึงใน" data-en="As featured in"></div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center text-center font-serif text-[20px] text-ink/60">
+      <div class="italic">Wallpaper*</div>
+      <div>BangkokPost</div>
+      <div class="font-serif-it">Sawasdee</div>
+      <div class="tracking-[.2em] text-[14px]">A DAY</div>
+      <div>Cereal —</div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="bg-ink text-paper">
+    <div class="max-w-[1320px] mx-auto px-6 py-24 grid grid-cols-12 gap-10 items-center">
+      <div class="col-span-12 md:col-span-7">
+        <div class="text-[11px] tracking-[.3em] uppercase text-sand mb-4" data-th="จดหมายข่าวจากบ้านสาน" data-en="The Jarksarn letter"></div>
+        <h2 class="font-serif text-[44px] md:text-[60px] leading-[1.05] tracking-tight">
+          <span class="lang-th font-thai font-light">เล่าเรื่องช่าง — ส่ง<span class="font-serif-it text-sand italic">ตรง</span> ถึงกล่องจดหมาย</span>
+          <span class="lang-en">Stories from the studio,<br/><span class="font-serif-it text-sand italic">delivered</span> to your inbox.</span>
+        </h2>
+      </div>
+      <div class="col-span-12 md:col-span-5">
+        <form class="flex border-b border-paper/40 pb-2 mb-3" onsubmit="event.preventDefault(); this.querySelector('input').value=''; document.getElementById('nl-ok').classList.remove('hidden');">
+          <input required type="email" placeholder="" class="flex-1 bg-transparent outline-none placeholder:text-paper/40 text-[16px]" />
+          <button class="text-[12px] tracking-[.2em] uppercase hover:text-sand">
+            <span data-th="สมัคร →" data-en="Subscribe →"></span>
+          </button>
+        </form>
+        <div id="nl-ok" class="hidden text-[12px] text-sand mb-2" data-th="ขอบคุณค่ะ ไว้พบกันในจดหมายฉบับหน้า" data-en="Thank you — see you in the next letter."></div>
+        <p class="text-[12px] text-paper/60 leading-relaxed">
+          <span data-th="หนึ่งฉบับต่อเดือน · เปิดตัวคอลเลกชั่น · ส่วนลด 10% สำหรับสมาชิกใหม่" data-en="One letter a month · early access to drops · 10% off your first piece"></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<!-- ============================ COLLECTION ============================ -->
+<section class="page" data-page="collection" id="collection">
+  <!-- Breadcrumb + hero -->
+  <div class="max-w-[1320px] mx-auto px-6 pt-10">
+    <nav class="text-[12px] text-ink/60 mb-6 flex items-center gap-2">
+      <a href="#home" class="hover:text-ink">Jarksarn</a><span>/</span>
+      <span data-th="ช้อปทั้งหมด" data-en="Shop all"></span><span>/</span>
+      <span class="text-ink" data-th="ห้องนั่งเล่น" data-en="Living"></span>
+    </nav>
+    <div class="grid grid-cols-12 gap-10 items-end pb-12 border-b hairline">
+      <div class="col-span-12 lg:col-span-7">
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-4">Collection · 01</div>
+        <h1 class="font-serif text-[clamp(48px,7vw,96px)] leading-[0.95] tracking-tight">
+          <span class="lang-th font-thai font-light">ห้องนั่งเล่น<br/><span class="font-serif-it text-rattan italic">อบอุ่น</span> ด้วยมือสาน</span>
+          <span class="lang-en">Living, <span class="font-serif-it text-rattan italic">warmed</span> by hand.</span>
+        </h1>
+      </div>
+      <div class="col-span-12 lg:col-span-4 lg:col-start-9 text-[15px] text-ink/75 leading-[1.7]">
+        <p data-th="22 ชิ้นที่คัดมาเฉพาะห้องนั่งเล่น — โซฟา เก้าอี้ โต๊ะข้าง และโคมไฟไม้ไผ่ที่ทอด้วยลายเฉพาะของบ้านเรา" data-en="A 22-piece edit for the living room — sofas, occasional chairs, side tables, and bamboo lights woven in our house pattern."></p>
+        <div class="mt-4 text-[12px] tracking-[.2em] uppercase text-ink/50">22 <span data-th="ชิ้น" data-en="pieces"></span> · <span data-th="วัสดุ 4 ชนิด" data-en="4 materials"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters + grid -->
+  <div class="max-w-[1320px] mx-auto px-6 py-10 grid grid-cols-12 gap-10">
+    <!-- Sidebar -->
+    <aside class="col-span-12 lg:col-span-3">
+      <div class="sticky top-[88px] space-y-8 text-[14px]">
+        <div class="flex items-center justify-between">
+          <span class="text-[12px] tracking-[.2em] uppercase text-ink/60" data-th="ตัวกรอง" data-en="Filters"></span>
+          <button class="text-[12px] underline-grow text-ink/60" id="clearFilters" data-th="ล้างทั้งหมด" data-en="Clear all"></button>
+        </div>
+
+        <div>
+          <div class="text-[12px] tracking-[.2em] uppercase mb-3" data-th="วัสดุ" data-en="Material"></div>
+          <ul class="space-y-2 text-[14px]">
+            <li><label class="flex items-center justify-between cursor-pointer"><span class="flex items-center gap-2.5"><input type="checkbox" class="chk filter-mat" value="rattan"/><span data-th="หวาย" data-en="Rattan"></span></span><span class="text-ink/40 text-[12px] tabular-nums">14</span></label></li>
+            <li><label class="flex items-center justify-between cursor-pointer"><span class="flex items-center gap-2.5"><input type="checkbox" class="chk filter-mat" value="bamboo"/><span data-th="ไม้ไผ่" data-en="Bamboo"></span></span><span class="text-ink/40 text-[12px] tabular-nums">8</span></label></li>
+            <li><label class="flex items-center justify-between cursor-pointer"><span class="flex items-center gap-2.5"><input type="checkbox" class="chk filter-mat" value="hyacinth"/><span data-th="ผักตบชวา" data-en="Water hyacinth"></span></span><span class="text-ink/40 text-[12px] tabular-nums">6</span></label></li>
+            <li><label class="flex items-center justify-between cursor-pointer"><span class="flex items-center gap-2.5"><input type="checkbox" class="chk filter-mat" value="sedge"/><span data-th="ต้นกก" data-en="Sedge"></span></span><span class="text-ink/40 text-[12px] tabular-nums">4</span></label></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="text-[12px] tracking-[.2em] uppercase mb-3" data-th="ราคา (บาท)" data-en="Price (THB)"></div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-[12px] text-ink/70 tabular-nums"><span>฿0</span><span id="priceLabel">฿2,500</span></div>
+            <input id="priceRange" type="range" min="200" max="3000" step="50" value="2500" class="w-full accent-ink" />
+            <div class="grid grid-cols-2 gap-2">
+              <input class="border hairline px-2 py-1.5 text-[12px] tabular-nums" value="฿0" readonly/>
+              <input id="priceMaxIn" class="border hairline px-2 py-1.5 text-[12px] tabular-nums" value="฿2,500" readonly/>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-[12px] tracking-[.2em] uppercase mb-3" data-th="เฉดสี" data-en="Tone"></div>
+          <div class="flex flex-wrap gap-2">
+            <button class="swatch w-7 h-7 rounded-full border hairline" style="background:#E8DFCB" title="Natural"></button>
+            <button class="swatch w-7 h-7 rounded-full border hairline" style="background:#C9BBA0" title="Sand"></button>
+            <button class="swatch w-7 h-7 rounded-full border hairline" style="background:#8B6F47" title="Rattan"></button>
+            <button class="swatch w-7 h-7 rounded-full border hairline" style="background:#3a2f24" title="Smoked"></button>
+            <button class="swatch w-7 h-7 rounded-full border hairline" style="background:#efe6d3" title="Bone"></button>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t hairline">
+          <div class="text-[12px] tracking-[.2em] uppercase mb-3" data-th="ช่วงเวลาผลิต" data-en="Lead time"></div>
+          <ul class="space-y-2">
+            <li><label class="flex items-center gap-2.5"><input type="checkbox" class="chk"/><span data-th="พร้อมส่ง" data-en="Ready to ship"></span></label></li>
+            <li><label class="flex items-center gap-2.5"><input type="checkbox" class="chk"/><span data-th="ทำตามสั่ง 7–14 วัน" data-en="Made to order, 7–14 d"></span></label></li>
+            <li><label class="flex items-center gap-2.5"><input type="checkbox" class="chk"/><span data-th="งานพิเศษ 3–6 สัปดาห์" data-en="Bespoke, 3–6 weeks"></span></label></li>
+          </ul>
+        </div>
+
+        <div class="pt-6 border-t hairline text-[12px] text-ink/60 leading-relaxed">
+          <div class="font-serif italic text-[16px] text-ink mb-2">Need a hand?</div>
+          <p data-th="ทักหาเราใน LINE @jarksarn เพื่อขอคำแนะนำสำหรับห้องของคุณ" data-en="Message us on LINE @jarksarn for advice tailored to your room."></p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Grid -->
+    <div class="col-span-12 lg:col-span-9">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div class="flex flex-wrap items-center gap-2 text-[12px]">
+          <span class="text-ink/60" data-th="กำลังดู" data-en="Showing"></span>
+          <span id="resultCount" class="tabular-nums">12</span>
+          <span class="text-ink/60" data-th="ของ 22 ชิ้น" data-en="of 22 pieces"></span>
+          <span class="text-ink/30 mx-2">|</span>
+          <button class="pill px-2.5 py-1 text-[11px] tracking-wider uppercase">Living ×</button>
+        </div>
+        <div class="flex items-center gap-3 text-[13px]">
+          <span class="text-ink/60 text-[12px] tracking-wider uppercase" data-th="เรียงตาม" data-en="Sort"></span>
+          <select id="sortSel" class="bg-transparent border hairline px-3 py-1.5 text-[13px]">
+            <option data-th="แนะนำ" data-en="Featured">แนะนำ / Featured</option>
+            <option data-th="ใหม่ล่าสุด" data-en="Newest">ใหม่ล่าสุด / Newest</option>
+            <option data-th="ราคาต่ำ→สูง" data-en="Price ↑">ราคาต่ำ→สูง</option>
+            <option data-th="ราคาสูง→ต่ำ" data-en="Price ↓">ราคาสูง→ต่ำ</option>
+          </select>
+          <div class="flex items-center pill overflow-hidden">
+            <button class="px-2.5 py-1.5"><svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="4" height="4" fill="currentColor"/><rect x="7" y="1" width="4" height="4" fill="currentColor"/><rect x="1" y="7" width="4" height="4" fill="currentColor"/><rect x="7" y="7" width="4" height="4" fill="currentColor"/></svg></button>
+            <button class="px-2.5 py-1.5 opacity-40"><svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="3" fill="currentColor"/><rect x="1" y="5" width="10" height="3" fill="currentColor"/><rect x="1" y="9" width="10" height="2" fill="currentColor"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="collectionGrid" class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12"></div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-between mt-16 pt-8 border-t hairline text-[13px]">
+        <button class="text-ink/40 cursor-not-allowed">← <span data-th="ก่อนหน้า" data-en="Previous"></span></button>
+        <div class="flex items-center gap-1">
+          <button class="w-8 h-8 bg-ink text-paper">1</button>
+          <button class="w-8 h-8 hover:bg-mist">2</button>
+          <span class="text-ink/40">…</span>
+          <button class="w-8 h-8 hover:bg-mist">4</button>
+        </div>
+        <button class="underline-grow"><span data-th="ถัดไป" data-en="Next"></span> →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRODUCT ============================ -->
+<section class="page" data-page="product" id="product">
+  <div class="max-w-[1320px] mx-auto px-6 pt-10">
+    <nav class="text-[12px] text-ink/60 mb-6 flex items-center gap-2 flex-wrap">
+      <a href="#home" class="hover:text-ink">Jarksarn</a><span>/</span>
+      <a href="#collection" class="hover:text-ink" data-th="ช้อปทั้งหมด" data-en="Shop all"></a><span>/</span>
+      <a href="#collection" class="hover:text-ink" data-th="ห้องนั่งเล่น" data-en="Living"></a><span>/</span>
+      <span class="text-ink" id="pdpCrumb">กระเช้าหวายทรงสูง</span>
+    </nav>
+
+    <div class="grid grid-cols-12 gap-12 pb-20">
+      <!-- Gallery -->
+      <div class="col-span-12 lg:col-span-7">
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-12 md:col-span-2 order-2 md:order-1 flex md:flex-col gap-3 overflow-x-auto md:overflow-visible no-scrollbar">
+            <button class="thumb shrink-0 w-20 md:w-full aspect-square weave-a relative ring-1 ring-ink" data-i="0">
+              <span class="absolute bottom-1 right-1 font-mono text-[9px] text-ink/60">01</span>
+            </button>
+            <button class="thumb shrink-0 w-20 md:w-full aspect-square weave-c relative ring-1 ring-line" data-i="1">
+              <span class="absolute bottom-1 right-1 font-mono text-[9px] text-ink/60">02</span>
+            </button>
+            <button class="thumb shrink-0 w-20 md:w-full aspect-square weave-b relative ring-1 ring-line" data-i="2">
+              <span class="absolute bottom-1 right-1 font-mono text-[9px] text-ink/60">03</span>
+            </button>
+            <button class="thumb shrink-0 w-20 md:w-full aspect-square weave-f relative ring-1 ring-line" data-i="3">
+              <span class="absolute bottom-1 right-1 font-mono text-[9px] text-ink/60">04</span>
+            </button>
+            <button class="thumb shrink-0 w-20 md:w-full aspect-square weave-e relative ring-1 ring-line" data-i="4">
+              <span class="absolute bottom-1 right-1 font-mono text-[9px] text-ink/60">05</span>
+            </button>
+          </div>
+          <div class="col-span-12 md:col-span-10 order-1 md:order-2">
+            <div class="aspect-[4/5] weave-a relative grain group overflow-hidden" id="mainShot">
+              <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">FIG. 01 — RATTAN, NATURAL · H 42 CM</span>
+              <span class="absolute top-4 right-4 font-mono text-[10px] tracking-[.2em] text-ink/60">JKS · 1024</span>
+              <svg viewBox="0 0 600 750" class="absolute inset-0 w-full h-full img-zoom" preserveAspectRatio="xMidYMax meet">
+                <defs><pattern id="weave2" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(8)"><path d="M0 7h14M7 0v14" stroke="#6f5836" stroke-width="1.4" fill="none"/></pattern></defs>
+                <ellipse cx="300" cy="690" rx="180" ry="14" fill="rgba(0,0,0,.10)"/>
+                <path d="M150 690 Q140 380 200 280 Q300 180 400 280 Q460 380 450 690 Z" fill="url(#weave2)"/>
+                <path d="M200 280 Q300 240 400 280" stroke="#5a4528" fill="none" stroke-width="2"/>
+              </svg>
+              <div class="absolute bottom-4 right-4 flex gap-2">
+                <button class="w-9 h-9 bg-paper border hairline grid place-items-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="1.4"/></svg></button>
+                <button class="w-9 h-9 bg-paper border hairline grid place-items-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 3l8 8M21 3l-8 8M3 21l8-8M21 21l-8-8" stroke="currentColor" stroke-width="1.4"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="col-span-12 lg:col-span-5">
+        <div class="sticky top-[88px]">
+          <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3 flex items-center gap-3">
+            <span>JKS · 1024</span>
+            <span class="w-6 h-px bg-rattan"></span>
+            <span data-th="ทำตามสั่ง · 10 วัน" data-en="Made to order · 10 days"></span>
+          </div>
+          <h1 class="font-serif text-[44px] leading-[1.05] tracking-tight">
+            <span class="lang-th font-thai font-light">กระเช้าหวายทรงสูง</span>
+            <span class="lang-en">Tall Rattan Storage Basket</span>
+          </h1>
+          <div class="font-serif-it text-[20px] text-ink/60 mt-1" data-th="ลายสานก้นหอย · ราชบุรี" data-en="Spiral weave · Ratchaburi"></div>
+
+          <div class="flex items-baseline gap-3 mt-6">
+            <span class="font-serif text-[34px]">฿1,290</span>
+            <span class="text-[14px] text-ink/40 line-through">฿1,490</span>
+            <span class="text-[11px] tracking-[.2em] uppercase text-rattan border border-rattan px-1.5 py-0.5">−13%</span>
+          </div>
+
+          <div class="mt-2 flex items-center gap-1.5 text-[12px] text-ink/70">
+            <div class="flex">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-ink/30">★</span>
+            </div>
+            <span class="tabular-nums">4.8</span>
+            <span class="text-ink/40">·</span>
+            <span><span class="tabular-nums">142</span> <span data-th="รีวิว" data-en="reviews"></span></span>
+          </div>
+
+          <p class="mt-6 text-[15px] leading-[1.75] text-ink/80">
+            <span data-th="กระเช้าทรงสูงสานด้วยหวายแท้จากภาคใต้ ลายก้นหอยแบบดั้งเดิมของบ้านเรา ใช้เก็บผ้าห่ม ของเล่น หรือเป็นโชว์พีซในห้องนั่งเล่น" data-en="A tall basket woven from southern Thai rattan in our family's spiral pattern. Holds throws, toys, or simply stands beautifully empty in the living room."></span>
+          </p>
+
+          <!-- Variants: SIZE -->
+          <div class="mt-8">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[12px] tracking-[.2em] uppercase text-ink/70" data-th="ขนาด" data-en="Size"></span>
+              <button class="text-[12px] underline-grow text-ink/60" data-th="คู่มือขนาด" data-en="Size guide"></button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-[13px]" id="sizeRow">
+              <button data-var="size" class="var py-3 border hairline" data-val="S"><div class="font-serif text-[18px]">S</div><div class="text-[11px] text-ink/60">28×34 cm</div></button>
+              <button data-var="size" class="var py-3 border-2 border-ink" data-val="M"><div class="font-serif text-[18px]">M</div><div class="text-[11px] text-ink/60">36×42 cm</div></button>
+              <button data-var="size" class="var py-3 border hairline" data-val="L"><div class="font-serif text-[18px]">L</div><div class="text-[11px] text-ink/60">44×52 cm</div></button>
+            </div>
+          </div>
+
+          <!-- Variants: COLOR -->
+          <div class="mt-6">
+            <div class="text-[12px] tracking-[.2em] uppercase text-ink/70 mb-3" data-th="เฉดสี" data-en="Tone"></div>
+            <div class="flex gap-3" id="toneRow">
+              <button data-var="tone" data-val="Natural" class="var flex items-center gap-2 pl-1 pr-3 py-1 border-2 border-ink"><span class="w-6 h-6 rounded-full" style="background:#E8DFCB"></span><span class="text-[12px]">Natural</span></button>
+              <button data-var="tone" data-val="Sand" class="var flex items-center gap-2 pl-1 pr-3 py-1 border hairline"><span class="w-6 h-6 rounded-full" style="background:#C9BBA0"></span><span class="text-[12px]">Sand</span></button>
+              <button data-var="tone" data-val="Smoked" class="var flex items-center gap-2 pl-1 pr-3 py-1 border hairline"><span class="w-6 h-6 rounded-full" style="background:#3a2f24"></span><span class="text-[12px]">Smoked</span></button>
+            </div>
+          </div>
+
+          <!-- Qty + CTAs -->
+          <div class="mt-8 flex items-center gap-3">
+            <div class="flex items-center border hairline">
+              <button id="qtyMinus" class="w-10 h-12">−</button>
+              <input id="qtyInput" value="1" class="w-10 text-center bg-transparent outline-none tabular-nums"/>
+              <button id="qtyPlus" class="w-10 h-12">+</button>
+            </div>
+            <button id="addToCart" class="flex-1 btn-primary py-3 text-[13px] tracking-[.2em] uppercase">
+              <span data-th="เพิ่มลงตะกร้า · ฿1,290" data-en="Add to bag · ฿1,290"></span>
+            </button>
+          </div>
+          <button class="mt-3 w-full btn-ghost py-3 text-[13px] tracking-[.2em] uppercase flex items-center justify-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 13c1.5 1.5 3 2 4 2s2.5-.5 4-2" stroke="currentColor" stroke-width="1.4"/><circle cx="9" cy="10" r="0.8" fill="currentColor"/><circle cx="15" cy="10" r="0.8" fill="currentColor"/></svg>
+            <span data-th="สั่งผ่าน LINE @jarksarn" data-en="Order via LINE @jarksarn"></span>
+          </button>
+
+          <!-- Trust line -->
+          <ul class="mt-7 grid grid-cols-1 gap-2 text-[12px] text-ink/70">
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-rattan"></span><span data-th="ส่งฟรีในไทย ฿1,500+ — ในกรุงเทพภายใน 2–3 วัน" data-en="Free TH shipping ฿1,500+ — Bangkok in 2–3 days"></span></li>
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-rattan"></span><span data-th="วัสดุธรรมชาติ 100% — ผ่านการเคลือบ UV" data-en="100% natural — UV-treated finish"></span></li>
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-rattan"></span><span data-th="คืนสินค้าได้ภายใน 14 วัน ไม่มีคำถาม" data-en="14-day no-questions returns"></span></li>
+          </ul>
+
+          <!-- Tabs -->
+          <div class="mt-10 border-t hairline pt-6">
+            <div class="flex flex-wrap gap-6 text-[12px] tracking-[.2em] uppercase text-ink/50">
+              <button class="tab active" data-tab="details"><span data-th="รายละเอียด" data-en="Details"></span></button>
+              <button class="tab" data-tab="material"><span data-th="วัสดุ" data-en="Material"></span></button>
+              <button class="tab" data-tab="care"><span data-th="การดูแล" data-en="Care"></span></button>
+              <button class="tab" data-tab="ship"><span data-th="การจัดส่ง" data-en="Shipping"></span></button>
+            </div>
+            <div class="mt-5 text-[14px] leading-[1.75] text-ink/80">
+              <div class="tab-panel" data-panel="details">
+                <p data-th="กระเช้าทรงสูงสานด้วยมือทั้งใบ — โครงทำจากหวายเส้นใหญ่ ผิวสานละเอียดด้วยหวายเส้นเล็กลายก้นหอย ปากกระเช้าหุ้มด้วยเชือกหนัง ปลายผูกด้วยลูกปัดไม้สัก" data-en="Woven entirely by hand — large rattan core wrapped in finer cane in our spiral pattern. Mouth bound with leather cord, finished with a teakwood bead."></p>
+                <ul class="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-[12px] tabular-nums text-ink/70">
+                  <li>· <span data-th="ขนาด: 36 × 42 ซม." data-en="Size: 36 × 42 cm"></span></li>
+                  <li>· <span data-th="น้ำหนัก: 1.6 กก." data-en="Weight: 1.6 kg"></span></li>
+                  <li>· <span data-th="รับน้ำหนักได้ 8 กก." data-en="Capacity: 8 kg"></span></li>
+                  <li>· <span data-th="ผลิตในราชบุรี" data-en="Made in Ratchaburi"></span></li>
+                </ul>
+              </div>
+              <div class="tab-panel hidden" data-panel="material">
+                <p data-th="หวายแท้จากภาคใต้ ตัดในฤดูแล้ง ตากแดด 7 วัน รมควันด้วยกะลามะพร้าวเพื่อกันแมลง เคลือบด้วยน้ำมันโจโจบาแบบบาง ๆ" data-en="Southern Thai rattan harvested in the dry season, sun-dried for seven days, smoked over coconut shell to deter insects, finished with a thin coat of jojoba oil."></p>
+              </div>
+              <div class="tab-panel hidden" data-panel="care">
+                <p data-th="ปัดฝุ่นด้วยแปรงขนนุ่มทุกสัปดาห์ เช็ดด้วยผ้าหมาด ๆ หากเปื้อน หลีกเลี่ยงแสงแดดจัดและความชื้นสูง" data-en="Dust weekly with a soft brush. Wipe with a barely-damp cloth if needed. Avoid direct sun and high humidity."></p>
+              </div>
+              <div class="tab-panel hidden" data-panel="ship">
+                <p data-th="กรุงเทพ 2–3 วัน · ต่างจังหวัด 3–5 วัน · ส่งต่างประเทศโปรดติดต่อ LINE" data-en="Bangkok 2–3 days · upcountry 3–5 days · international, please contact us on LINE."></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAKER -->
+    <section class="border-t hairline py-20">
+      <div class="grid grid-cols-12 gap-10 items-center">
+        <div class="col-span-12 md:col-span-5">
+          <div class="weave-e grain relative h-[460px]">
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="portrait w-56 h-72 rounded-t-[120px] border hairline"></div>
+            </div>
+            <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">PORTRAIT — KHUN PA RIAM, 62</span>
+            <span class="absolute bottom-4 right-4 font-mono text-[10px] tracking-[.2em] text-ink/60">RATCHABURI · 36 YEARS WEAVING</span>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-6 md:col-start-7">
+          <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="ช่างผู้สาน" data-en="The maker"></div>
+          <h3 class="font-serif text-[44px] leading-[1.05] tracking-tight mb-2">
+            <span class="lang-th font-thai font-light">ป้าเรียม · บ้านโป่ง</span>
+            <span class="lang-en">Khun Pa Riam · Ban Pong</span>
+          </h3>
+          <div class="font-serif-it text-[18px] text-ink/60 mb-6" data-th="36 ปีกับลายก้นหอย" data-en="36 years on the spiral pattern"></div>
+          <p class="text-[15px] leading-[1.8] text-ink/80">
+            <span data-th="ป้าเรียมเริ่มสานตั้งแต่อายุ 26 หลังจากแม่สามีของเธอสอนลายก้นหอยที่เป็นเอกลักษณ์ของหมู่บ้าน วันนี้ลายนี้ยังเป็นของตระกูลเธอ — และทุกใบที่คุณเห็นในชั้นวาง ป้าเรียมเป็นคนสานเอง" data-en="Pa Riam began weaving at 26, when her mother-in-law taught her the spiral pattern unique to Ban Pong. Three decades later the pattern still belongs to her family — and every tall basket you see on our shelves was woven by her."></span>
+          </p>
+          <div class="mt-7 grid grid-cols-3 gap-6 text-[13px]">
+            <div><div class="font-serif text-[28px]">36</div><div class="text-[11px] tracking-[.2em] uppercase text-ink/60" data-th="ปีของฝีมือ" data-en="years"></div></div>
+            <div><div class="font-serif text-[28px]">14</div><div class="text-[11px] tracking-[.2em] uppercase text-ink/60" data-th="วันต่อใบ" data-en="days each"></div></div>
+            <div><div class="font-serif text-[28px]">1</div><div class="text-[11px] tracking-[.2em] uppercase text-ink/60" data-th="ลายเฉพาะตัว" data-en="house pattern"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="border-t hairline py-20">
+      <div class="flex items-end justify-between mb-8">
+        <h3 class="font-serif text-[36px]"><span data-th="คุณอาจจะชอบ" data-en="You may also like"></span></h3>
+        <a href="#collection" class="text-[13px] underline-grow"><span data-th="ดูทั้งหมด →" data-en="See all →"></span></a>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="relatedGrid"></div>
+    </section>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="page" data-page="about" id="about">
+  <!-- Hero -->
+  <section class="relative border-b hairline">
+    <div class="max-w-[1320px] mx-auto px-6 py-24 grid grid-cols-12 gap-10 items-end">
+      <div class="col-span-12 lg:col-span-7">
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-4" data-th="เรื่องราวของบ้านสาน" data-en="The Jarksarn story"></div>
+        <h1 class="font-serif text-[clamp(56px,8vw,108px)] leading-[0.92] tracking-tight">
+          <span class="lang-th font-thai font-light">สามรุ่น<br/><span class="font-serif-it text-rattan italic">หกหมู่บ้าน</span><br/>หนึ่งมือสาน</span>
+          <span class="lang-en">Three<br/>generations,<br/><span class="font-serif-it text-rattan italic">six villages,</span><br/>one craft.</span>
+        </h1>
+      </div>
+      <div class="col-span-12 lg:col-span-4 lg:col-start-9 text-[15px] leading-[1.8] text-ink/80">
+        <p data-th="Jarksarn (จักสาน) เริ่มต้นที่ครัวหลังบ้านในจังหวัดราชบุรีปี 2535 — วันนี้เรายังเป็นธุรกิจครอบครัว ที่ทำงานร่วมกับช่างฝีมือ 37 คน ใน 6 หมู่บ้านทั่วประเทศไทย" data-en="Jarksarn (จักสาน) began at the back of a family kitchen in Ratchaburi in 1992. Today we are still family-run, working alongside 37 artisans across six villages in Thailand."></p>
+        <a href="#collection" class="mt-6 inline-block text-[13px] underline-grow" data-th="ช้อปคอลเลกชั่น →" data-en="Shop the collection →"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Big image -->
+  <section>
+    <div class="weave-e grain relative h-[60vh] min-h-[420px]">
+      <span class="absolute top-6 left-6 font-mono text-[11px] tracking-[.2em] text-ink/60">PLATE V — STUDIO, RATCHABURI · 1995</span>
+      <span class="absolute bottom-6 right-6 font-mono text-[11px] tracking-[.2em] text-ink/60">JKS · ARCHIVE 0042</span>
+    </div>
+  </section>
+
+  <!-- Heritage essay -->
+  <section class="max-w-[980px] mx-auto px-6 py-24">
+    <div class="space-y-7 text-[18px] leading-[1.85] text-ink/85 font-light">
+      <p class="font-serif italic text-[26px] leading-[1.5] text-ink not-italic" data-th="“แม่บอกว่า อย่ารีบ — ของดีไม่รีบ”" data-en='"Mother always said: don\u2019t rush. Good things don\u2019t rush."'></p>
+      <p data-th="คุณยายบุญมาเริ่มต้นบ้านสานในปี 2535 — ตอนนั้นเธอสานกระเช้าหวายขายในตลาดเช้าราชบุรี ได้ใบละ 60 บาท วันละไม่เกิน 4 ใบ ลูกค้าส่วนใหญ่คือแม่ค้าในตลาด ที่ใช้ใส่ผัก ใส่ข้าว ใส่ของเหลือจากแผง" data-en="Khun Yai Boonma started the house in 1992 — back then she sold rattan baskets at the morning market in Ratchaburi for 60 baht apiece, no more than four a day. Her customers were the market vendors who used them for vegetables, rice, the day's leftovers."></p>
+      <p data-th="ลูกสาวของเธอ — คุณแม่สมพร — เป็นคนเริ่มเปิดร้านในซอยศาลาแดงเมื่อปี 2552 เธอเปลี่ยนกระเช้าธรรมดาให้เป็นของแต่งบ้าน เลือกหวายที่ดีที่สุด ตั้งราคาที่สมเหตุสมผล และคุยกับช่างเหมือนคุยกับครอบครัว" data-en="Her daughter — Khun Mae Somporn — opened our first proper shop on Soi Saladaeng in 2009. She turned the everyday basket into a homeware piece, sourced the best rattan she could find, paid the artisans like family, and never haggled at either end."></p>
+      <p data-th="วันนี้รุ่นที่สามของเรากำลังขยายไปอย่างช้า ๆ — ทำงานกับช่างใน 6 หมู่บ้าน เลือกวัสดุท้องถิ่น ใช้เทคนิคดั้งเดิม และส่งของจากบ้านสู่บ้าน" data-en="Today the third generation is expanding slowly — working with artisans across six villages, choosing local materials, holding to the original techniques, and shipping from one home to another."></p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="border-y hairline bg-mist/40">
+    <div class="max-w-[1320px] mx-auto px-6 py-20">
+      <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="เส้นเวลา" data-en="Brand timeline"></div>
+      <h2 class="font-serif text-[44px] leading-[1.05] tracking-tight mb-12">
+        <span data-th="34 ปี — ทีละมือสาน" data-en="34 years, one weave at a time."></span>
+      </h2>
+
+      <div class="relative">
+        <div class="absolute left-0 right-0 top-[60px] h-px bg-line"></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 relative">
+          <div>
+            <div class="text-[12px] tracking-[.2em] uppercase text-ink/60 mb-2 tabular-nums">2535 / '92</div>
+            <div class="w-3 h-3 -ml-px rounded-full bg-ink mb-4 relative z-10"></div>
+            <div class="font-serif text-[20px] leading-tight" data-th="คุณยายบุญมาเริ่มสานกระเช้าในตลาด" data-en="Yai Boonma weaves the first baskets for market"></div>
+          </div>
+          <div>
+            <div class="text-[12px] tracking-[.2em] uppercase text-ink/60 mb-2 tabular-nums">2552 / '09</div>
+            <div class="w-3 h-3 rounded-full bg-rattan mb-4 relative z-10"></div>
+            <div class="font-serif text-[20px] leading-tight" data-th="ร้านแรก ซอยศาลาแดง" data-en="First proper shop opens, Soi Saladaeng"></div>
+          </div>
+          <div>
+            <div class="text-[12px] tracking-[.2em] uppercase text-ink/60 mb-2 tabular-nums">2557 / '14</div>
+            <div class="w-3 h-3 rounded-full bg-rattan mb-4 relative z-10"></div>
+            <div class="font-serif text-[20px] leading-tight" data-th="แบรนด์ Jarksarn ก่อตั้งอย่างเป็นทางการ" data-en="The Jarksarn brand is formally founded"></div>
+          </div>
+          <div>
+            <div class="text-[12px] tracking-[.2em] uppercase text-ink/60 mb-2 tabular-nums">2562 / '19</div>
+            <div class="w-3 h-3 rounded-full bg-rattan mb-4 relative z-10"></div>
+            <div class="font-serif text-[20px] leading-tight" data-th="ร่วมงานกับหมู่บ้านที่สอง — บ้านโป่ง" data-en="Partnership with second village, Ban Pong"></div>
+          </div>
+          <div>
+            <div class="text-[12px] tracking-[.2em] uppercase text-ink/60 mb-2 tabular-nums">2566 / '23</div>
+            <div class="w-3 h-3 rounded-full bg-rattan mb-4 relative z-10"></div>
+            <div class="font-serif text-[20px] leading-tight" data-th="เปิดสตูดิโอที่เชียงใหม่" data-en="Chiang Mai studio opens"></div>
+          </div>
+          <div>
+            <div class="text-[12px] tracking-[.2em] uppercase text-ink/60 mb-2 tabular-nums">2569 / '26</div>
+            <div class="w-3 h-3 rounded-full bg-ink mb-4 relative z-10"></div>
+            <div class="font-serif text-[20px] leading-tight" data-th="6 หมู่บ้าน · 37 ช่างฝีมือ · ส่งทั่วเอเชีย" data-en="6 villages, 37 artisans, shipping across Asia"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE MAKERS -->
+  <section class="max-w-[1320px] mx-auto px-6 py-24">
+    <div class="flex items-end justify-between mb-12 flex-wrap gap-6">
+      <div>
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="ทีมช่างของเรา" data-en="Meet our makers"></div>
+        <h2 class="font-serif text-[44px] md:text-[56px] leading-[1.02] tracking-tight">
+          <span data-th="ทุกชิ้นมีชื่อคนสาน" data-en="Every piece has a name behind it."></span>
+        </h2>
+      </div>
+      <a href="#collection" class="text-[13px] underline-grow" data-th="ดูสินค้าจากช่างทุกคน →" data-en="Shop by maker →"></a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Maker card 1 -->
+      <article class="lift">
+        <div class="weave-a grain relative h-[420px] mb-5">
+          <div class="absolute inset-0 grid place-items-center">
+            <div class="portrait w-44 h-56 rounded-t-[100px] border hairline"></div>
+          </div>
+          <span class="absolute top-3 left-3 font-mono text-[10px] tracking-[.2em] text-ink/60">PORTRAIT 01</span>
+        </div>
+        <div class="font-mono text-[11px] tracking-[.2em] text-rattan mb-1">RATCHABURI · 36 YRS</div>
+        <h3 class="font-serif text-[26px] leading-tight"><span data-th="ป้าเรียม" data-en="Khun Pa Riam"></span></h3>
+        <div class="font-serif-it text-[16px] text-ink/60 mb-3" data-th="ลายก้นหอย · หวาย" data-en="Spiral pattern · rattan"></div>
+        <p class="text-[14px] text-ink/75 leading-[1.7]">
+          <span data-th="“ฉันสานช้า ๆ ค่ะ — รีบไปใบมันก็ไม่กลม”" data-en='"I weave slowly — if you rush, the basket comes out crooked."'></span>
+        </p>
+      </article>
+      <!-- Maker card 2 -->
+      <article class="lift">
+        <div class="weave-c grain relative h-[420px] mb-5">
+          <div class="absolute inset-0 grid place-items-center">
+            <div class="portrait w-44 h-56 rounded-t-[100px] border hairline" style="filter:hue-rotate(-10deg)"></div>
+          </div>
+          <span class="absolute top-3 left-3 font-mono text-[10px] tracking-[.2em] text-ink/60">PORTRAIT 02</span>
+        </div>
+        <div class="font-mono text-[11px] tracking-[.2em] text-rattan mb-1">CHIANG MAI · 22 YRS</div>
+        <h3 class="font-serif text-[26px] leading-tight"><span data-th="ลุงคำ" data-en="Lung Kham"></span></h3>
+        <div class="font-serif-it text-[16px] text-ink/60 mb-3" data-th="โครงไม้ไผ่ · โคมไฟ" data-en="Bamboo frames · lighting"></div>
+        <p class="text-[14px] text-ink/75 leading-[1.7]">
+          <span data-th="“ไม้ไผ่ที่ดี ต้องตัดในข้างแรม ก่อนพระอาทิตย์ขึ้น”" data-en='"Good bamboo is cut on a waning moon, before the sun comes up."'></span>
+        </p>
+      </article>
+      <!-- Maker card 3 -->
+      <article class="lift">
+        <div class="weave-f grain relative h-[420px] mb-5">
+          <div class="absolute inset-0 grid place-items-center">
+            <div class="portrait w-44 h-56 rounded-t-[100px] border hairline" style="filter:hue-rotate(15deg)"></div>
+          </div>
+          <span class="absolute top-3 left-3 font-mono text-[10px] tracking-[.2em] text-ink/60">PORTRAIT 03</span>
+        </div>
+        <div class="font-mono text-[11px] tracking-[.2em] text-rattan mb-1">PHATTHALUNG · 14 YRS</div>
+        <h3 class="font-serif text-[26px] leading-tight"><span data-th="พี่ลำดวน" data-en="P'Lamduan"></span></h3>
+        <div class="font-serif-it text-[16px] text-ink/60 mb-3" data-th="ผักตบ · กระเป๋า" data-en="Water hyacinth · bags"></div>
+        <p class="text-[14px] text-ink/75 leading-[1.7]">
+          <span data-th="“ผักตบเป็นวัชพืช — แต่พอเอามาสานก็เป็นของหรู”" data-en='"Water hyacinth is just a weed — until you weave it, then it\u2019s luxury."'></span>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- BTS gallery -->
+  <section class="border-t hairline">
+    <div class="max-w-[1320px] mx-auto px-6 py-20">
+      <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="เบื้องหลัง" data-en="Behind the scenes"></div>
+      <h2 class="font-serif text-[44px] leading-[1] tracking-tight mb-12">
+        <span data-th="วันธรรมดาในสตูดิโอ" data-en="An ordinary day in the studio."></span>
+      </h2>
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-6 md:col-span-3 weave-a grain h-56 relative"><span class="absolute bottom-2 left-2 font-mono text-[10px] tracking-[.2em] text-ink/60">06:14 — DRYING RACK</span></div>
+        <div class="col-span-6 md:col-span-3 weave-b grain h-56 relative"><span class="absolute bottom-2 left-2 font-mono text-[10px] tracking-[.2em] text-ink/60">07:22 — SORTING CANE</span></div>
+        <div class="col-span-12 md:col-span-6 weave-c grain h-56 relative"><span class="absolute bottom-2 left-2 font-mono text-[10px] tracking-[.2em] text-ink/60">10:48 — THE FIRST KNOT</span></div>
+        <div class="col-span-12 md:col-span-6 weave-d grain h-56 relative"><span class="absolute bottom-2 left-2 font-mono text-[10px] tracking-[.2em] text-paper/80">14:02 — WEAVING THE WALL</span></div>
+        <div class="col-span-6 md:col-span-3 weave-e grain h-56 relative"><span class="absolute bottom-2 left-2 font-mono text-[10px] tracking-[.2em] text-ink/60">16:31 — TEA</span></div>
+        <div class="col-span-6 md:col-span-3 weave-f grain h-56 relative"><span class="absolute bottom-2 left-2 font-mono text-[10px] tracking-[.2em] text-ink/60">18:09 — PACKING</span></div>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer id="footer" class="bg-ink text-paper">
+  <div class="max-w-[1320px] mx-auto px-6 py-20 grid grid-cols-12 gap-10">
+    <div class="col-span-12 md:col-span-4">
+      <div class="font-serif text-[44px] leading-none">Jarksarn</div>
+      <div class="font-thai text-[12px] tracking-[0.4em] text-sand mt-1">จักสาน</div>
+      <p class="mt-6 text-[14px] text-paper/70 max-w-sm leading-relaxed">
+        <span data-th="แบรนด์งานจักสานไทย ก่อตั้งโดยครอบครัวในราชบุรี ปี 2535 — สตูดิโอที่กรุงเทพและเชียงใหม่" data-en="A Thai wickerwork house, family-founded in Ratchaburi in 1992. Studios in Bangkok and Chiang Mai."></span>
+      </p>
+      <!-- LINE QR -->
+      <div class="mt-8 flex items-center gap-4">
+        <div class="w-20 h-20 bg-paper p-2">
+          <svg viewBox="0 0 21 21" class="w-full h-full" shape-rendering="crispEdges">
+            <rect width="21" height="21" fill="#FAFAF7"/>
+            <g fill="#2A2A2A">
+              <!-- finder squares -->
+              <rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="#FAFAF7"/><rect x="2" y="2" width="3" height="3"/>
+              <rect x="14" y="0" width="7" height="7"/><rect x="15" y="1" width="5" height="5" fill="#FAFAF7"/><rect x="16" y="2" width="3" height="3"/>
+              <rect x="0" y="14" width="7" height="7"/><rect x="1" y="15" width="5" height="5" fill="#FAFAF7"/><rect x="2" y="16" width="3" height="3"/>
+              <!-- pseudo data dots -->
+              <rect x="9" y="0" width="1" height="1"/><rect x="11" y="0" width="2" height="1"/>
+              <rect x="8" y="2" width="1" height="2"/><rect x="10" y="2" width="2" height="1"/><rect x="13" y="3" width="1" height="1"/>
+              <rect x="9" y="5" width="3" height="1"/><rect x="13" y="5" width="1" height="2"/>
+              <rect x="0" y="9" width="2" height="1"/><rect x="3" y="9" width="1" height="2"/><rect x="5" y="9" width="2" height="1"/>
+              <rect x="9" y="9" width="1" height="2"/><rect x="11" y="9" width="2" height="2"/><rect x="14" y="9" width="1" height="1"/><rect x="16" y="9" width="2" height="2"/><rect x="19" y="9" width="2" height="1"/>
+              <rect x="0" y="11" width="1" height="2"/><rect x="2" y="11" width="3" height="1"/><rect x="6" y="11" width="2" height="2"/><rect x="10" y="11" width="1" height="2"/><rect x="13" y="12" width="2" height="1"/><rect x="16" y="11" width="1" height="2"/><rect x="18" y="11" width="2" height="1"/>
+              <rect x="9" y="14" width="1" height="1"/><rect x="11" y="14" width="3" height="1"/><rect x="15" y="15" width="1" height="2"/><rect x="17" y="14" width="2" height="1"/>
+              <rect x="9" y="16" width="2" height="2"/><rect x="12" y="17" width="1" height="2"/><rect x="14" y="18" width="3" height="1"/><rect x="18" y="16" width="2" height="2"/>
+              <rect x="9" y="19" width="1" height="2"/><rect x="11" y="19" width="2" height="1"/><rect x="14" y="19" width="2" height="2"/><rect x="17" y="19" width="1" height="2"/><rect x="19" y="19" width="2" height="2"/>
+            </g>
+          </svg>
+        </div>
+        <div class="text-[13px]">
+          <div class="text-[11px] tracking-[.2em] uppercase text-sand mb-1" data-th="แชทกับเรา" data-en="Chat with us"></div>
+          <div class="font-serif text-[22px]">@jarksarn</div>
+          <div class="text-paper/60 text-[12px]">LINE Official Account</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-6 md:col-span-2">
+      <div class="text-[11px] tracking-[.2em] uppercase text-sand mb-4" data-th="ช้อป" data-en="Shop"></div>
+      <ul class="space-y-2 text-[13px] text-paper/80">
+        <li><a class="underline-grow" href="#collection" data-th="ห้องนั่งเล่น" data-en="Living"></a></li>
+        <li><a class="underline-grow" href="#collection" data-th="ครัวและโต๊ะอาหาร" data-en="Kitchen"></a></li>
+        <li><a class="underline-grow" href="#collection" data-th="กระเช้า & จัดเก็บ" data-en="Storage"></a></li>
+        <li><a class="underline-grow" href="#collection" data-th="ของแต่งบ้าน" data-en="Accessories"></a></li>
+        <li><a class="underline-grow text-sand" href="#collection" data-th="ลดราคา" data-en="Sale"></a></li>
+      </ul>
+    </div>
+
+    <div class="col-span-6 md:col-span-2">
+      <div class="text-[11px] tracking-[.2em] uppercase text-sand mb-4" data-th="เกี่ยวกับ" data-en="About"></div>
+      <ul class="space-y-2 text-[13px] text-paper/80">
+        <li><a class="underline-grow" href="#about" data-th="เรื่องราวของเรา" data-en="Our story"></a></li>
+        <li><a class="underline-grow" href="#about" data-th="ช่างผู้สาน" data-en="Makers"></a></li>
+        <li><a class="underline-grow" href="#about" data-th="วัสดุ & การดูแล" data-en="Materials"></a></li>
+        <li><a class="underline-grow" href="#" data-th="ร้านค้า" data-en="Stockists"></a></li>
+        <li><a class="underline-grow" href="#" data-th="กดดัน" data-en="Press"></a></li>
+      </ul>
+    </div>
+
+    <div class="col-span-12 md:col-span-4">
+      <div class="text-[11px] tracking-[.2em] uppercase text-sand mb-4" data-th="ติดต่อ" data-en="Get in touch"></div>
+      <div class="text-[14px] leading-[1.8] text-paper/85">
+        <div class="font-serif italic text-paper text-[18px] mb-2">studio@jarksarn.co</div>
+        <div data-th="สตูดิโอกรุงเทพ — ซอยศาลาแดง 12, สีลม" data-en="Bangkok studio — Soi Saladaeng 12, Silom"></div>
+        <div data-th="สตูดิโอเชียงใหม่ — นิมมานเหมินทร์ ซอย 5" data-en="Chiang Mai studio — Nimmanhaemin Soi 5"></div>
+        <div class="mt-3"><span data-th="เปิดทุกวัน 10:00 – 19:00" data-en="Open daily 10:00 – 19:00"></span></div>
+      </div>
+      <div class="mt-6 flex items-center gap-4 text-[12px]">
+        <a class="underline-grow" href="#">Instagram</a>
+        <a class="underline-grow" href="#">Facebook</a>
+        <a class="underline-grow" href="#">Pinterest</a>
+        <a class="underline-grow" href="#">TikTok</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment + bottom -->
+  <div class="border-t border-paper/15">
+    <div class="max-w-[1320px] mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-6 text-[11px] text-paper/60 tracking-wide">
+      <div class="flex items-center gap-3">
+        <span class="text-[10px] tracking-[.2em] uppercase opacity-70" data-th="ชำระเงิน" data-en="We accept"></span>
+        <span class="px-2 py-1 border border-paper/20 rounded-sm font-mono text-[10px]">PromptPay</span>
+        <span class="px-2 py-1 border border-paper/20 rounded-sm font-mono text-[10px] italic font-serif">VISA</span>
+        <span class="px-2 py-1 border border-paper/20 rounded-sm font-mono text-[10px]">MC</span>
+        <span class="px-2 py-1 border border-paper/20 rounded-sm font-mono text-[10px]">SCB · KBANK · TTB</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <span data-th="© 2569 Jarksarn Co., Ltd." data-en="© 2026 Jarksarn Co., Ltd."></span>
+        <a href="#" class="underline-grow" data-th="ความเป็นส่วนตัว" data-en="Privacy"></a>
+        <a href="#" class="underline-grow" data-th="ข้อตกลง" data-en="Terms"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ CART DRAWER ============================ -->
+<div id="scrim" class="scrim fixed inset-0 bg-ink/35 z-40"></div>
+<aside id="cartDrawer" class="drawer fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[440px] bg-paper shadow-2xl flex flex-col">
+  <div class="flex items-center justify-between px-6 h-[72px] border-b hairline">
+    <div class="flex items-center gap-3">
+      <span class="font-serif text-[24px]" data-th="ตะกร้าของคุณ" data-en="Your bag"></span>
+      <span class="text-ink/50 text-[13px]">(<span id="cartCount2">2</span>)</span>
+    </div>
+    <button id="closeCart" class="text-[12px] tracking-[.2em] uppercase">Close ×</button>
+  </div>
+  <div class="flex-1 overflow-y-auto px-6 py-6 space-y-6" id="cartLines">
+    <!-- populated -->
+  </div>
+  <div class="border-t hairline px-6 py-5 space-y-3 text-[13px]">
+    <div class="flex justify-between"><span class="text-ink/60" data-th="รวม" data-en="Subtotal"></span><span class="tabular-nums" id="subTotal">฿1,940</span></div>
+    <div class="flex justify-between text-ink/70"><span data-th="ค่าจัดส่ง" data-en="Shipping"></span><span data-th="ฟรี" data-en="Free"></span></div>
+    <div class="flex justify-between font-serif text-[20px] pt-3 border-t hairline"><span data-th="ยอดสุทธิ" data-en="Total"></span><span class="tabular-nums" id="total">฿1,940</span></div>
+    <button class="w-full btn-primary py-3 text-[13px] tracking-[.2em] uppercase mt-2"><span data-th="ดำเนินการชำระเงิน →" data-en="Checkout →"></span></button>
+    <button class="w-full text-[12px] tracking-[.18em] uppercase text-ink/60 underline-grow mx-auto block"><span data-th="หรือสั่งผ่าน LINE @jarksarn" data-en="Or order on LINE @jarksarn"></span></button>
+  </div>
+</aside>
+
+<!-- ============================ TOAST ============================ -->
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-ink text-paper px-5 py-3 text-[13px] shadow-xl translate-y-10 opacity-0 transition-all duration-300 pointer-events-none">
+  <span data-th="เพิ่มลงตะกร้าแล้ว ✓" data-en="Added to your bag ✓"></span>
+</div>
+
+<!-- ============================ DATA + LOGIC ============================ -->
+<script>
+  // ----- DATA -----
+  const PRODUCTS = [
+    { id:1, sku:'JKS-1024', th:'กระเช้าหวายทรงสูง', en:'Tall Rattan Storage Basket', price:1290, was:1490, mat:'rattan', cat:'living', tone:'Natural', weave:'weave-a', opts:3, badge:'Bestseller' },
+    { id:2, sku:'JKS-0712', th:'เสื่อกกลายไทย', en:'Traditional Thai Sedge Mat', price:890, mat:'sedge', cat:'living', tone:'Sand', weave:'weave-c', opts:2 },
+    { id:3, sku:'JKS-2208', th:'โคมไฟไม้ไผ่แขวน', en:'Bamboo Pendant Lamp', price:2450, mat:'bamboo', cat:'living', tone:'Smoked', weave:'weave-d', opts:4, badge:'New' },
+    { id:4, sku:'JKS-0418', th:'ตะกร้าผลไม้ผักตบ', en:'Water Hyacinth Fruit Basket', price:650, mat:'hyacinth', cat:'kitchen', tone:'Natural', weave:'weave-b', opts:2 },
+    { id:5, sku:'JKS-1530', th:'กระเป๋าหวายสาน', en:'Hand-woven Rattan Bag', price:1890, mat:'rattan', cat:'accessories', tone:'Natural', weave:'weave-a', opts:3 },
+    { id:6, sku:'JKS-0309', th:'ถาดเสิร์ฟไม้ไผ่', en:'Bamboo Serving Tray', price:520, mat:'bamboo', cat:'kitchen', tone:'Smoked', weave:'weave-f', opts:2 },
+    { id:7, sku:'JKS-1840', th:'โต๊ะข้างหวาย', en:'Rattan Side Table', price:2890, mat:'rattan', cat:'living', tone:'Sand', weave:'weave-e', opts:2, badge:'Limited' },
+    { id:8, sku:'JKS-1110', th:'ตะกร้าผ้าหวายใหญ่', en:'Large Laundry Hamper', price:1690, mat:'rattan', cat:'living', tone:'Natural', weave:'weave-a', opts:1 },
+    { id:9, sku:'JKS-0625', th:'ที่รองแก้วผักตบ', en:'Hyacinth Coaster Set (4)', price:280, mat:'hyacinth', cat:'kitchen', tone:'Sand', weave:'weave-b', opts:1 },
+    {id:10, sku:'JKS-1402', th:'แจกันสานไม้ไผ่', en:'Bamboo Vase', price:790, mat:'bamboo', cat:'living', tone:'Natural', weave:'weave-c', opts:3 },
+    {id:11, sku:'JKS-0205', th:'เสื่อรองจานกก', en:'Sedge Placemat (set of 2)', price:380, mat:'sedge', cat:'kitchen', tone:'Sand', weave:'weave-c', opts:2 },
+    {id:12, sku:'JKS-2901', th:'กระเช้าจัดเก็บกลาง', en:'Medium Storage Basket', price:990, mat:'rattan', cat:'living', tone:'Natural', weave:'weave-a', opts:2 },
+  ];
+
+  const fmt = (n) => '฿' + n.toLocaleString('en-US');
+
+  // ----- PRODUCT CARD -----
+  function card(p, big=false) {
+    return `
+      <a href="#product" data-go-product="${p.id}" class="group block">
+        <div class="relative overflow-hidden ${p.weave} grain ${big? 'aspect-[4/5]' : 'aspect-[4/5]'}">
+          <div class="absolute inset-0 img-zoom ${p.weave}"></div>
+          <span class="absolute top-3 left-3 font-mono text-[10px] tracking-[.2em] text-ink/60">${p.sku}</span>
+          ${p.badge? `<span class="absolute top-3 right-3 bg-paper/90 px-2 py-1 text-[10px] tracking-[.18em] uppercase">${p.badge}</span>`:''}
+          <button class="absolute bottom-3 right-3 w-9 h-9 bg-paper grid place-items-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all" aria-label="quick add" onclick="event.preventDefault(); event.stopPropagation(); addToBag(${p.id});">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/0 to-transparent"></div>
+        </div>
+        <div class="mt-4 flex items-start justify-between gap-3">
+          <div>
+            <div class="text-[15px] leading-tight"><span data-th="${p.th}" data-en="${p.en}"></span></div>
+            <div class="font-mono text-[11px] text-ink/50 mt-1">${p.opts} <span data-th="ตัวเลือก" data-en="options"></span> · ${p.tone}</div>
+          </div>
+          <div class="text-right">
+            <div class="font-serif text-[18px] tabular-nums">${fmt(p.price)}</div>
+            ${p.was? `<div class="text-[11px] text-ink/40 line-through tabular-nums">${fmt(p.was)}</div>`:''}
+          </div>
+        </div>
+      </a>`;
+  }
+
+  // ----- RENDER -----
+  function renderHomeFeatured() {
+    document.getElementById('featuredGrid').innerHTML =
+      [PRODUCTS[0], PRODUCTS[2], PRODUCTS[4], PRODUCTS[5]].map(p => card(p)).join('');
+  }
+  function renderCollection() {
+    const checked = [...document.querySelectorAll('.filter-mat:checked')].map(c => c.value);
+    const max = parseInt(document.getElementById('priceRange').value, 10);
+    const sort = document.getElementById('sortSel').value;
+
+    let list = PRODUCTS.filter(p => p.cat==='living' || p.cat==='kitchen' || p.cat==='accessories');
+    list = list.filter(p => p.price <= max);
+    if (checked.length) list = list.filter(p => checked.includes(p.mat));
+    if (sort.includes('ราคาต่ำ') || sort==='Price ↑') list.sort((a,b)=>a.price-b.price);
+    if (sort.includes('ราคาสูง') || sort==='Price ↓') list.sort((a,b)=>b.price-a.price);
+    if (sort.includes('ใหม่') || sort==='Newest') list.sort((a,b)=>b.id-a.id);
+
+    document.getElementById('collectionGrid').innerHTML = list.map(p => card(p)).join('');
+    document.getElementById('resultCount').textContent = list.length;
+    applyLang();
+  }
+  function renderRelated() {
+    document.getElementById('relatedGrid').innerHTML =
+      [PRODUCTS[1], PRODUCTS[7], PRODUCTS[11], PRODUCTS[3]].map(p => card(p)).join('');
+  }
+
+  // ----- LANG -----
+  function setLang(l) {
+    document.documentElement.setAttribute('data-lang', l);
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('bg-ink', b.dataset.lang===l);
+      b.classList.toggle('text-paper', b.dataset.lang===l);
+    });
+    applyLang();
+  }
+  function applyLang() {
+    const l = document.documentElement.getAttribute('data-lang') || 'th';
+    document.querySelectorAll('[data-th]').forEach(el => {
+      el.textContent = (l==='th') ? el.dataset.th : el.dataset.en;
+    });
+  }
+
+  // ----- PAGE NAV -----
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page===name));
+    window.scrollTo({ top:0, behavior:'instant' });
+  }
+  function routeFromHash() {
+    const h = (location.hash || '#home').replace('#','');
+    const known = ['home','collection','product','about','footer'];
+    if (h === 'craft') { showPage('home'); setTimeout(()=>document.getElementById('craft').scrollIntoView({behavior:'smooth'}), 30); return; }
+    if (h === 'footer') { /* keep current page; scroll to footer */ document.getElementById('footer').scrollIntoView({behavior:'smooth'}); return; }
+    if (known.includes(h)) showPage(h); else showPage('home');
+  }
+  window.addEventListener('hashchange', routeFromHash);
+
+  // ----- CART -----
+  let CART = [
+    { id:1, qty:1, size:'M', tone:'Natural' },
+    { id:6, qty:1, size:'—', tone:'Smoked' },
+  ];
+  function cartHTML() {
+    if (!CART.length) {
+      return `<div class="text-center text-ink/60 text-[14px] py-20"><span data-th="ตะกร้าของคุณว่างอยู่" data-en="Your bag is empty."></span></div>`;
+    }
+    return CART.map((line,i) => {
+      const p = PRODUCTS.find(x=>x.id===line.id);
+      return `<div class="grid grid-cols-12 gap-4">
+        <div class="col-span-3 ${p.weave} grain aspect-square relative">
+          <span class="absolute bottom-1 left-1 font-mono text-[9px] text-ink/60">${p.sku}</span>
+        </div>
+        <div class="col-span-9">
+          <div class="flex justify-between gap-2">
+            <div class="text-[14px]"><span data-th="${p.th}" data-en="${p.en}"></span></div>
+            <div class="font-serif text-[16px] tabular-nums">${fmt(p.price * line.qty)}</div>
+          </div>
+          <div class="font-mono text-[11px] text-ink/50 mt-1">${line.size} · ${line.tone}</div>
+          <div class="mt-3 flex items-center justify-between">
+            <div class="flex items-center border hairline text-[12px]">
+              <button onclick="adjQty(${i},-1)" class="w-7 h-7">−</button>
+              <span class="w-7 text-center tabular-nums">${line.qty}</span>
+              <button onclick="adjQty(${i},1)" class="w-7 h-7">+</button>
+            </div>
+            <button onclick="removeLine(${i})" class="text-[11px] tracking-[.18em] uppercase text-ink/50 underline-grow"><span data-th="ลบ" data-en="Remove"></span></button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  function refreshCart() {
+    document.getElementById('cartLines').innerHTML = cartHTML();
+    const sub = CART.reduce((s,l)=> s + (PRODUCTS.find(p=>p.id===l.id).price * l.qty), 0);
+    document.getElementById('subTotal').textContent = fmt(sub);
+    document.getElementById('total').textContent = fmt(sub);
+    const n = CART.reduce((s,l)=>s+l.qty,0);
+    document.getElementById('cartCount').textContent = n;
+    document.getElementById('cartCount2').textContent = n;
+    applyLang();
+  }
+  window.adjQty = (i,d) => { CART[i].qty = Math.max(1, CART[i].qty+d); refreshCart(); };
+  window.removeLine = (i) => { CART.splice(i,1); refreshCart(); };
+  window.addToBag = (id) => {
+    const ex = CART.find(l => l.id===id);
+    if (ex) ex.qty++;
+    else CART.push({ id, qty:1, size:'M', tone:'Natural' });
+    refreshCart();
+    toast();
+    openCart();
+  };
+  function openCart() { document.getElementById('cartDrawer').classList.add('open'); document.getElementById('scrim').classList.add('on'); }
+  function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('scrim').classList.remove('on'); }
+  function toast() {
+    const t = document.getElementById('toast');
+    t.classList.remove('translate-y-10','opacity-0');
+    setTimeout(()=> t.classList.add('translate-y-10','opacity-0'), 1800);
+  }
+
+  // ----- INIT -----
+  document.addEventListener('DOMContentLoaded', () => {
+    setLang('th');
+    renderHomeFeatured();
+    renderCollection();
+    renderRelated();
+    refreshCart();
+    routeFromHash();
+
+    // Category tab panel data (3 sub-columns + lookbook per category)
+    const TAB_DATA = {
+      living: {
+        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
+        title:   { th: 'ห้องนั่งเล่น', en: 'Living' },
+        cols: [
+          { head: { th: 'เฟอร์นิเจอร์', en: 'Furniture' }, items: [
+              { th: 'โซฟาหวาย', en: 'Rattan sofas', n: 12 },
+              { th: 'เก้าอี้สาน', en: 'Woven chairs', n: 18 },
+              { th: 'โต๊ะข้าง', en: 'Side tables', n: 9 },
+              { th: 'ม้านั่งยาว', en: 'Benches', n: 6 },
+            ] },
+          { head: { th: 'แสงสว่าง', en: 'Lighting' }, items: [
+              { th: 'โคมไฟแขวน', en: 'Pendant lamps', n: 14 },
+              { th: 'โคมไฟตั้งพื้น', en: 'Floor lamps', n: 7 },
+              { th: 'โคมไฟตั้งโต๊ะ', en: 'Table lamps', n: 11 },
+            ] },
+          { head: { th: 'ของแต่งห้อง', en: 'Room accents' }, items: [
+              { th: 'พรมกก', en: 'Sedge rugs', n: 8 },
+              { th: 'หมอนอิง', en: 'Cushions', n: 16 },
+              { th: 'กรอบรูปสาน', en: 'Woven frames', n: 10 },
+              { th: 'แจกันสาน', en: 'Woven vases', n: 12 },
+            ] },
+        ],
+        look: { eyebrow: { th: 'คอลเลกชั่นแนะนำ', en: 'Featured drop' }, title: { th: 'ฤดูฝน 2569', en: 'Monsoon 2026' }, cta: { th: 'ดูคอลเลกชั่น →', en: 'Shop the drop →' } }
+      },
+      kitchen: {
+        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
+        title:   { th: 'ครัว & โต๊ะอาหาร', en: 'Kitchen & dining' },
+        cols: [
+          { head: { th: 'งานสาน บนโต๊ะ', en: 'On the table' }, items: [
+              { th: 'เสื่อรองจาน', en: 'Placemats', n: 22 },
+              { th: 'รองแก้ว', en: 'Coasters', n: 14 },
+              { th: 'รองหม้อ', en: 'Trivets', n: 8 },
+            ] },
+          { head: { th: 'ถาดเสิร์ฟ', en: 'Trays & boards' }, items: [
+              { th: 'ถาดไม้ไผ่', en: 'Bamboo trays', n: 11 },
+              { th: 'ถาดกลม', en: 'Round trays', n: 7 },
+              { th: 'ถาดเสิร์ฟชา', en: 'Tea service trays', n: 5 },
+            ] },
+          { head: { th: 'ตะกร้า', en: 'Baskets' }, items: [
+              { th: 'ตะกร้าผลไม้', en: 'Fruit baskets', n: 9 },
+              { th: 'ตะกร้าขนมปัง', en: 'Bread baskets', n: 6 },
+              { th: 'ฝาชี', en: 'Food covers', n: 4 },
+            ] },
+        ],
+        look: { eyebrow: { th: 'งานคราฟต์ใหม่', en: 'New craft' }, title: { th: 'โต๊ะอาหารฤดูแล้ง', en: 'Dry-season table' }, cta: { th: 'จัดโต๊ะใหม่ →', en: 'Set the table →' } }
+      },
+      storage: {
+        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
+        title:   { th: 'กระเช้า & จัดเก็บ', en: 'Storage' },
+        cols: [
+          { head: { th: 'ตามขนาด', en: 'By size' }, items: [
+              { th: 'ใบเล็ก (S)', en: 'Small (S)', n: 18 },
+              { th: 'ใบกลาง (M)', en: 'Medium (M)', n: 24 },
+              { th: 'ใบใหญ่ (L)', en: 'Large (L)', n: 12 },
+              { th: 'ทรงสูง', en: 'Tall', n: 7 },
+            ] },
+          { head: { th: 'ตามวัสดุ', en: 'By material' }, items: [
+              { th: 'หวาย', en: 'Rattan', n: 28 },
+              { th: 'ไม้ไผ่', en: 'Bamboo', n: 19 },
+              { th: 'ผักตบชวา', en: 'Water hyacinth', n: 22 },
+              { th: 'กก', en: 'Sedge', n: 11 },
+            ] },
+          { head: { th: 'ตามการใช้', en: 'By use' }, items: [
+              { th: 'จัดเก็บผ้า', en: 'Laundry', n: 8 },
+              { th: 'ห้องเด็ก', en: 'Kids room', n: 6 },
+              { th: 'ตะกร้ามีฝา', en: 'Lidded baskets', n: 9 },
+              { th: 'ที่จัดของในตู้', en: 'Closet organisers', n: 14 },
+            ] },
+        ],
+        look: { eyebrow: { th: 'คู่มือจัดบ้าน', en: 'Organising guide' }, title: { th: 'จัดบ้านให้สงบ', en: 'A quieter home' }, cta: { th: 'อ่านคู่มือ →', en: 'Read the guide →' } }
+      },
+      accessories: {
+        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
+        title:   { th: 'ของแต่งบ้าน', en: 'Accessories' },
+        cols: [
+          { head: { th: 'เครื่องแต่งกาย', en: 'Carry' }, items: [
+              { th: 'กระเป๋าหวาย', en: 'Rattan bags', n: 14 },
+              { th: 'กระเป๋าผักตบ', en: 'Hyacinth totes', n: 9 },
+              { th: 'หมวกสาน', en: 'Woven hats', n: 6 },
+            ] },
+          { head: { th: 'ของแต่งบ้าน', en: 'Home decor' }, items: [
+              { th: 'พัดสาน', en: 'Hand fans', n: 8 },
+              { th: 'ที่คั่นหนังสือ', en: 'Bookmarks', n: 5 },
+              { th: 'งานแขวนผนัง', en: 'Wall pieces', n: 11 },
+            ] },
+          { head: { th: 'ของขวัญ', en: 'Gifting' }, items: [
+              { th: 'ต่ำกว่า ฿500', en: 'Under ฿500', n: 12 },
+              { th: '฿500 – ฿1,500', en: '฿500 – ฿1,500', n: 18 },
+              { th: 'ห่อของขวัญ', en: 'Gift wrap', n: 3 },
+              { th: 'บัตรของขวัญ', en: 'Gift card', n: 1 },
+            ] },
+        ],
+        look: { eyebrow: { th: 'ของขวัญ', en: 'Gifting' }, title: { th: 'ห่อด้วยมือ ส่งด้วยใจ', en: 'Wrapped by hand' }, cta: { th: 'ดูชุดของขวัญ →', en: 'Shop gifts →' } }
+      },
+    };
+
+    const tabPanel = document.getElementById('tabPanel');
+    const tabCols = document.getElementById('tabCols');
+    const tabImageBg = document.getElementById('tabImageBg');
+    const tabImageMeta = document.getElementById('tabImageMeta');
+    const tabImageEyebrow = document.getElementById('tabImageEyebrow');
+    const tabImageTitle = document.getElementById('tabImageTitle');
+    const tabImageCta = document.getElementById('tabImageCta');
+    const weaveByTab = { living: 'weave-a', kitchen: 'weave-c', storage: 'weave-e', accessories: 'weave-b' };
+
+    function renderTabPanel(key) {
+      const data = TAB_DATA[key]; if (!data) return;
+      // header row above 3 columns + columns themselves
+      tabCols.innerHTML = `
+        <div class="col-span-3 flex items-baseline justify-between border-b hairline pb-3 mb-1">
+          <div>
+            <div class="text-[10px] tracking-[.3em] uppercase text-rattan mb-1" data-th="${data.eyebrow.th}" data-en="${data.eyebrow.en}"></div>
+            <div class="font-serif text-[26px] leading-none" data-th="${data.title.th}" data-en="${data.title.en}"></div>
+          </div>
+          <a href="#collection" class="text-[11px] tracking-[.2em] uppercase underline-grow" data-th="ดูทั้งหมด →" data-en="View all →"></a>
+        </div>
+        ${data.cols.map(col => `
+          <div>
+            <div class="text-[11px] tracking-[.25em] uppercase text-ink/50 mb-3 pb-2 border-b hairline" data-th="${col.head.th}" data-en="${col.head.en}"></div>
+            <ul class="space-y-2.5 text-[14px]">
+              ${col.items.map(it => `
+                <li><a href="#collection" class="group flex items-baseline justify-between gap-3 hover:text-rattan">
+                  <span data-th="${it.th}" data-en="${it.en}"></span>
+                  <span class="font-mono text-[10px] text-ink/35 group-hover:text-rattan/70">${String(it.n).padStart(2,'0')}</span>
+                </a></li>
+              `).join('')}
+            </ul>
+          </div>
+        `).join('')}
+      `;
+      // Right lookbook
+      tabImageBg.className = `absolute inset-0 ${weaveByTab[key] || 'weave-e'} grain img-zoom`;
+      tabImageMeta.textContent = (key.toUpperCase() + ' · LOOKBOOK');
+      tabImageEyebrow.dataset.th = data.look.eyebrow.th; tabImageEyebrow.dataset.en = data.look.eyebrow.en;
+      tabImageTitle.dataset.th  = data.look.title.th;   tabImageTitle.dataset.en  = data.look.title.en;
+      tabImageCta.dataset.th    = data.look.cta.th;     tabImageCta.dataset.en    = data.look.cta.en;
+      // re-apply current language
+      setLang(document.documentElement.dataset.lang || 'th');
+    }
+
+    function openTabPanel(key) {
+      renderTabPanel(key);
+      tabPanel.classList.add('open'); tabPanel.classList.remove('hidden');
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === key));
+    }
+    function closeTabPanel() {
+      tabPanel.classList.remove('open'); tabPanel.classList.add('hidden');
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    }
+
+    let tabHoverTimer;
+    document.querySelectorAll('.nav-tab[data-tab]').forEach(btn => {
+      const key = btn.dataset.tab;
+      if (!TAB_DATA[key]) return; // 'new' has no panel
+      btn.addEventListener('mouseenter', () => { clearTimeout(tabHoverTimer); openTabPanel(key); });
+      btn.addEventListener('focus',      () => { clearTimeout(tabHoverTimer); openTabPanel(key); });
+      btn.addEventListener('click', (e) => { e.preventDefault(); openTabPanel(key); });
+    });
+    document.getElementById('siteHeader').addEventListener('mouseleave', () => {
+      tabHoverTimer = setTimeout(closeTabPanel, 180);
+    });
+    tabPanel.addEventListener('mouseenter', () => clearTimeout(tabHoverTimer));
+    tabPanel.addEventListener('mouseleave', () => { tabHoverTimer = setTimeout(closeTabPanel, 180); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeTabPanel(); });
+    tabPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeTabPanel));
+
+    // Lang toggle
+    document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+    // Cart open/close
+    document.getElementById('cartBtn').addEventListener('click', openCart);
+    document.getElementById('closeCart').addEventListener('click', closeCart);
+    document.getElementById('scrim').addEventListener('click', closeCart);
+
+    // Filters
+    document.querySelectorAll('.filter-mat').forEach(c => c.addEventListener('change', renderCollection));
+    document.getElementById('priceRange').addEventListener('input', e => {
+      const v = parseInt(e.target.value,10);
+      document.getElementById('priceLabel').textContent = '฿' + v.toLocaleString();
+      document.getElementById('priceMaxIn').value = '฿' + v.toLocaleString();
+      renderCollection();
+    });
+    document.getElementById('sortSel').addEventListener('change', renderCollection);
+    document.getElementById('clearFilters').addEventListener('click', () => {
+      document.querySelectorAll('.filter-mat').forEach(c => c.checked=false);
+      document.getElementById('priceRange').value = 3000;
+      document.getElementById('priceLabel').textContent = '฿3,000';
+      document.getElementById('priceMaxIn').value = '฿3,000';
+      renderCollection();
+    });
+
+    // Variant pickers (PDP)
+    document.querySelectorAll('.var').forEach(b => {
+      b.addEventListener('click', () => {
+        const group = b.dataset.var;
+        document.querySelectorAll(`.var[data-var="${group}"]`).forEach(x => {
+          x.classList.remove('border-2','border-ink');
+          x.classList.add('border','hairline');
+        });
+        b.classList.remove('border','hairline');
+        b.classList.add('border-2','border-ink');
+      });
+    });
+
+    // Qty
+    document.getElementById('qtyMinus').addEventListener('click', () => {
+      const i = document.getElementById('qtyInput'); i.value = Math.max(1, parseInt(i.value,10)-1);
+    });
+    document.getElementById('qtyPlus').addEventListener('click', () => {
+      const i = document.getElementById('qtyInput'); i.value = parseInt(i.value,10)+1;
+    });
+
+    // Add to cart on PDP
+    document.getElementById('addToCart').addEventListener('click', () => {
+      const qty = parseInt(document.getElementById('qtyInput').value,10) || 1;
+      for (let k=0; k<qty; k++) addToBag(1);
+    });
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const target = t.dataset.tab;
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('hidden', p.dataset.panel !== target));
+    }));
+
+    // PDP gallery thumbs
+    document.querySelectorAll('.thumb').forEach(t => t.addEventListener('click', () => {
+      document.querySelectorAll('.thumb').forEach(x => { x.classList.remove('ring-ink'); x.classList.add('ring-line'); });
+      t.classList.remove('ring-line'); t.classList.add('ring-ink');
+      const m = document.getElementById('mainShot');
+      const cls = ['weave-a','weave-b','weave-c','weave-d','weave-e','weave-f'];
+      cls.forEach(c => m.classList.remove(c));
+      m.classList.add(['weave-a','weave-c','weave-b','weave-f','weave-e'][parseInt(t.dataset.i,10)]);
+    }));
+
+    // Product link interception
+    document.body.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-go-product]');
+      if (t) {
+        e.preventDefault();
+        location.hash = '#product';
+        showPage('product');
+      }
+      if (e.target.closest('[data-go="home"]')) {
+        // wordmark link — let hash change happen
+      }
+    });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold:0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  });
+</script>
+
+</body>
+</html>

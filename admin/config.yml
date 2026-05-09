@@ -106,3 +106,18 @@ collections:
                 summary: '{{fields.image}}'
                 fields:
                   - { name: image, label: 'รูป', widget: image }
+              # ---- Product description (short) ----
+              - { name: description_th, label: 'คำอธิบายสั้น (TH)', widget: text, required: false, hint: 'แสดงด้านบนของหน้าสินค้า' }
+              - { name: description_en, label: 'Short description (EN)', widget: text, required: false }
+              # ---- Tab: Details ----
+              - { name: details_th, label: 'รายละเอียด (TH)', widget: markdown, required: false }
+              - { name: details_en, label: 'Details (EN)', widget: markdown, required: false }
+              # ---- Tab: Material ----
+              - { name: material_th, label: 'วัสดุ (TH)', widget: markdown, required: false }
+              - { name: material_en, label: 'Material (EN)', widget: markdown, required: false }
+              # ---- Tab: Care ----
+              - { name: care_th, label: 'การดูแล (TH)', widget: markdown, required: false }
+              - { name: care_en, label: 'Care (EN)', widget: markdown, required: false }
+              # ---- Tab: Shipping ----
+              - { name: shipping_th, label: 'การจัดส่ง (TH)', widget: markdown, required: false }
+              - { name: shipping_en, label: 'Shipping (EN)', widget: markdown, required: false }

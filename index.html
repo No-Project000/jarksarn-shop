@@ -185,7 +185,7 @@
   <div id="tabPanel" class="absolute left-0 right-0 top-full bg-paper border-b hairline shadow-[0_30px_60px_-30px_rgba(0,0,0,.18)] hidden">
     <div class="max-w-[1320px] mx-auto px-6 py-10 grid grid-cols-12 gap-10">
       <!-- LEFT: 3 sub-columns -->
-      <div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-8" id="tabCols"></div>
+      <div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-x-8 gap-y-2" id="tabCols"></div>
       <!-- RIGHT: contextual image -->
       <a href="#collection" class="col-span-12 lg:col-span-4 group block relative overflow-hidden h-[320px]" id="tabImage">
         <div class="absolute inset-0 weave-e grain img-zoom" id="tabImageBg"></div>
@@ -293,9 +293,10 @@
   <section class="max-w-[1320px] mx-auto px-6 py-20 lg:py-28" data-comment-anchor="0d50e9e576-section">
     <div class="flex items-end justify-between mb-10 gap-6 flex-wrap">
       <div>
-        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="ชิ้นเด่นประจำเดือน" data-en="Selected this season"></div>
-        <h2 class="font-serif text-[42px] md:text-[56px] leading-[1] tracking-tight">
-          <span data-th="ชิ้นที่เราภูมิใจนำเสนอ" data-en="Pieces we're proud of."></span>
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-8" data-th="ชิ้นเด่นประจำเดือน" data-en="Selected this season"></div>
+        <h2 class="font-serif text-[42px] md:text-[56px] leading-[1.25] tracking-tight pt-2">
+          <span class="lang-th font-thai font-light">ชิ้นที่เราภูมิใจนำเสนอ</span>
+          <span class="lang-en">Pieces we're proud of.</span>
         </h2>
       </div>
       <a href="#collection" class="text-[13px] underline-grow flex items-center gap-2">
@@ -336,7 +337,7 @@
 
       <div class="col-span-12 lg:col-span-5 lg:col-start-8">
         <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-4" data-th="งานช่างของเรา" data-en="Our craft"></div>
-        <h2 class="font-serif text-[44px] leading-[1.05] tracking-tight mb-6">
+        <h2 class="font-serif text-[44px] leading-[1.25] tracking-tight mb-6">
           <span class="lang-th font-thai font-light">สามรุ่นของครอบครัว<br/><span class="font-serif-it text-rattan">หนึ่งฝีมือ</span></span>
           <span class="lang-en">Three generations,<br/><span class="font-serif-it text-rattan">one pair of hands</span></span>
         </h2>
@@ -806,8 +807,8 @@
   <section class="relative border-b hairline">
     <div class="max-w-[1320px] mx-auto px-6 py-24 grid grid-cols-12 gap-10 items-end">
       <div class="col-span-12 lg:col-span-7">
-        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-4" data-th="เรื่องราวของบ้านสาน" data-en="The Jarksarn story"></div>
-        <h1 class="font-serif text-[clamp(56px,8vw,108px)] leading-[0.92] tracking-tight">
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-6" data-th="เรื่องราวของบ้านสาน" data-en="The Jarksarn story"></div>
+        <h1 class="font-serif text-[clamp(56px,8vw,108px)] leading-[1.2] tracking-tight">
           <span class="lang-th font-thai font-light">สามรุ่น<br/><span class="font-serif-it text-rattan italic">หกหมู่บ้าน</span><br/>หนึ่งมือสาน</span>
           <span class="lang-en">Three<br/>generations,<br/><span class="font-serif-it text-rattan italic">six villages,</span><br/>one craft.</span>
         </h1>
@@ -887,9 +888,10 @@
   <section class="max-w-[1320px] mx-auto px-6 py-24">
     <div class="flex items-end justify-between mb-12 flex-wrap gap-6">
       <div>
-        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-3" data-th="ทีมช่างของเรา" data-en="Meet our makers"></div>
-        <h2 class="font-serif text-[44px] md:text-[56px] leading-[1.02] tracking-tight">
-          <span data-th="ทุกชิ้นมีชื่อคนสาน" data-en="Every piece has a name behind it."></span>
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-8" data-th="ทีมช่างของเรา" data-en="Meet our makers"></div>
+        <h2 class="font-serif text-[44px] md:text-[56px] leading-[1.25] tracking-tight pt-2">
+          <span class="lang-th font-thai font-light">ทุกชิ้นมีชื่อคนสาน</span>
+          <span class="lang-en">Every piece has a name behind it.</span>
         </h2>
       </div>
       <a href="#collection" class="text-[13px] underline-grow" data-th="ดูสินค้าจากช่างทุกคน →" data-en="Shop by maker →"></a>
@@ -1094,20 +1096,7 @@
 <!-- ============================ DATA + LOGIC ============================ -->
 <script>
   // ----- DATA -----
-  const PRODUCTS = [
-    { id:1, sku:'JKS-1024', th:'กระเช้าหวายทรงสูง', en:'Tall Rattan Storage Basket', price:1290, was:1490, mat:'rattan', cat:'living', tone:'Natural', weave:'weave-a', opts:3, badge:'Bestseller' },
-    { id:2, sku:'JKS-0712', th:'เสื่อกกลายไทย', en:'Traditional Thai Sedge Mat', price:890, mat:'sedge', cat:'living', tone:'Sand', weave:'weave-c', opts:2 },
-    { id:3, sku:'JKS-2208', th:'โคมไฟไม้ไผ่แขวน', en:'Bamboo Pendant Lamp', price:2450, mat:'bamboo', cat:'living', tone:'Smoked', weave:'weave-d', opts:4, badge:'New' },
-    { id:4, sku:'JKS-0418', th:'ตะกร้าผลไม้ผักตบ', en:'Water Hyacinth Fruit Basket', price:650, mat:'hyacinth', cat:'kitchen', tone:'Natural', weave:'weave-b', opts:2 },
-    { id:5, sku:'JKS-1530', th:'กระเป๋าหวายสาน', en:'Hand-woven Rattan Bag', price:1890, mat:'rattan', cat:'accessories', tone:'Natural', weave:'weave-a', opts:3 },
-    { id:6, sku:'JKS-0309', th:'ถาดเสิร์ฟไม้ไผ่', en:'Bamboo Serving Tray', price:520, mat:'bamboo', cat:'kitchen', tone:'Smoked', weave:'weave-f', opts:2 },
-    { id:7, sku:'JKS-1840', th:'โต๊ะข้างหวาย', en:'Rattan Side Table', price:2890, mat:'rattan', cat:'living', tone:'Sand', weave:'weave-e', opts:2, badge:'Limited' },
-    { id:8, sku:'JKS-1110', th:'ตะกร้าผ้าหวายใหญ่', en:'Large Laundry Hamper', price:1690, mat:'rattan', cat:'living', tone:'Natural', weave:'weave-a', opts:1 },
-    { id:9, sku:'JKS-0625', th:'ที่รองแก้วผักตบ', en:'Hyacinth Coaster Set (4)', price:280, mat:'hyacinth', cat:'kitchen', tone:'Sand', weave:'weave-b', opts:1 },
-    {id:10, sku:'JKS-1402', th:'แจกันสานไม้ไผ่', en:'Bamboo Vase', price:790, mat:'bamboo', cat:'living', tone:'Natural', weave:'weave-c', opts:3 },
-    {id:11, sku:'JKS-0205', th:'เสื่อรองจานกก', en:'Sedge Placemat (set of 2)', price:380, mat:'sedge', cat:'kitchen', tone:'Sand', weave:'weave-c', opts:2 },
-    {id:12, sku:'JKS-2901', th:'กระเช้าจัดเก็บกลาง', en:'Medium Storage Basket', price:990, mat:'rattan', cat:'living', tone:'Natural', weave:'weave-a', opts:2 },
-  ];
+  let PRODUCTS = [];
 
   const fmt = (n) => '฿' + n.toLocaleString('en-US');
 
@@ -1255,111 +1244,27 @@
   }
 
   // ----- INIT -----
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     setLang('th');
+    let TAB_DATA = {};
+    try {
+      const [pRes, cRes] = await Promise.all([
+        fetch('./data/products.json'),
+        fetch('./data/categories.json'),
+      ]);
+      const pData = await pRes.json();
+      PRODUCTS = Array.isArray(pData) ? pData : (pData.products || []);
+      TAB_DATA = await cRes.json();
+    } catch (err) {
+      console.error('Failed to load data files', err);
+    }
     renderHomeFeatured();
     renderCollection();
     renderRelated();
     refreshCart();
     routeFromHash();
 
-    // Category tab panel data (3 sub-columns + lookbook per category)
-    const TAB_DATA = {
-      living: {
-        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
-        title:   { th: 'ห้องนั่งเล่น', en: 'Living' },
-        cols: [
-          { head: { th: 'เฟอร์นิเจอร์', en: 'Furniture' }, items: [
-              { th: 'โซฟาหวาย', en: 'Rattan sofas', n: 12 },
-              { th: 'เก้าอี้สาน', en: 'Woven chairs', n: 18 },
-              { th: 'โต๊ะข้าง', en: 'Side tables', n: 9 },
-              { th: 'ม้านั่งยาว', en: 'Benches', n: 6 },
-            ] },
-          { head: { th: 'แสงสว่าง', en: 'Lighting' }, items: [
-              { th: 'โคมไฟแขวน', en: 'Pendant lamps', n: 14 },
-              { th: 'โคมไฟตั้งพื้น', en: 'Floor lamps', n: 7 },
-              { th: 'โคมไฟตั้งโต๊ะ', en: 'Table lamps', n: 11 },
-            ] },
-          { head: { th: 'ของแต่งห้อง', en: 'Room accents' }, items: [
-              { th: 'พรมกก', en: 'Sedge rugs', n: 8 },
-              { th: 'หมอนอิง', en: 'Cushions', n: 16 },
-              { th: 'กรอบรูปสาน', en: 'Woven frames', n: 10 },
-              { th: 'แจกันสาน', en: 'Woven vases', n: 12 },
-            ] },
-        ],
-        look: { eyebrow: { th: 'คอลเลกชั่นแนะนำ', en: 'Featured drop' }, title: { th: 'ฤดูฝน 2569', en: 'Monsoon 2026' }, cta: { th: 'ดูคอลเลกชั่น →', en: 'Shop the drop →' } }
-      },
-      kitchen: {
-        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
-        title:   { th: 'ครัว & โต๊ะอาหาร', en: 'Kitchen & dining' },
-        cols: [
-          { head: { th: 'งานสาน บนโต๊ะ', en: 'On the table' }, items: [
-              { th: 'เสื่อรองจาน', en: 'Placemats', n: 22 },
-              { th: 'รองแก้ว', en: 'Coasters', n: 14 },
-              { th: 'รองหม้อ', en: 'Trivets', n: 8 },
-            ] },
-          { head: { th: 'ถาดเสิร์ฟ', en: 'Trays & boards' }, items: [
-              { th: 'ถาดไม้ไผ่', en: 'Bamboo trays', n: 11 },
-              { th: 'ถาดกลม', en: 'Round trays', n: 7 },
-              { th: 'ถาดเสิร์ฟชา', en: 'Tea service trays', n: 5 },
-            ] },
-          { head: { th: 'ตะกร้า', en: 'Baskets' }, items: [
-              { th: 'ตะกร้าผลไม้', en: 'Fruit baskets', n: 9 },
-              { th: 'ตะกร้าขนมปัง', en: 'Bread baskets', n: 6 },
-              { th: 'ฝาชี', en: 'Food covers', n: 4 },
-            ] },
-        ],
-        look: { eyebrow: { th: 'งานคราฟต์ใหม่', en: 'New craft' }, title: { th: 'โต๊ะอาหารฤดูแล้ง', en: 'Dry-season table' }, cta: { th: 'จัดโต๊ะใหม่ →', en: 'Set the table →' } }
-      },
-      storage: {
-        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
-        title:   { th: 'กระเช้า & จัดเก็บ', en: 'Storage' },
-        cols: [
-          { head: { th: 'ตามขนาด', en: 'By size' }, items: [
-              { th: 'ใบเล็ก (S)', en: 'Small (S)', n: 18 },
-              { th: 'ใบกลาง (M)', en: 'Medium (M)', n: 24 },
-              { th: 'ใบใหญ่ (L)', en: 'Large (L)', n: 12 },
-              { th: 'ทรงสูง', en: 'Tall', n: 7 },
-            ] },
-          { head: { th: 'ตามวัสดุ', en: 'By material' }, items: [
-              { th: 'หวาย', en: 'Rattan', n: 28 },
-              { th: 'ไม้ไผ่', en: 'Bamboo', n: 19 },
-              { th: 'ผักตบชวา', en: 'Water hyacinth', n: 22 },
-              { th: 'กก', en: 'Sedge', n: 11 },
-            ] },
-          { head: { th: 'ตามการใช้', en: 'By use' }, items: [
-              { th: 'จัดเก็บผ้า', en: 'Laundry', n: 8 },
-              { th: 'ห้องเด็ก', en: 'Kids room', n: 6 },
-              { th: 'ตะกร้ามีฝา', en: 'Lidded baskets', n: 9 },
-              { th: 'ที่จัดของในตู้', en: 'Closet organisers', n: 14 },
-            ] },
-        ],
-        look: { eyebrow: { th: 'คู่มือจัดบ้าน', en: 'Organising guide' }, title: { th: 'จัดบ้านให้สงบ', en: 'A quieter home' }, cta: { th: 'อ่านคู่มือ →', en: 'Read the guide →' } }
-      },
-      accessories: {
-        eyebrow: { th: 'หมวดหมู่', en: 'Category' },
-        title:   { th: 'ของแต่งบ้าน', en: 'Accessories' },
-        cols: [
-          { head: { th: 'เครื่องแต่งกาย', en: 'Carry' }, items: [
-              { th: 'กระเป๋าหวาย', en: 'Rattan bags', n: 14 },
-              { th: 'กระเป๋าผักตบ', en: 'Hyacinth totes', n: 9 },
-              { th: 'หมวกสาน', en: 'Woven hats', n: 6 },
-            ] },
-          { head: { th: 'ของแต่งบ้าน', en: 'Home decor' }, items: [
-              { th: 'พัดสาน', en: 'Hand fans', n: 8 },
-              { th: 'ที่คั่นหนังสือ', en: 'Bookmarks', n: 5 },
-              { th: 'งานแขวนผนัง', en: 'Wall pieces', n: 11 },
-            ] },
-          { head: { th: 'ของขวัญ', en: 'Gifting' }, items: [
-              { th: 'ต่ำกว่า ฿500', en: 'Under ฿500', n: 12 },
-              { th: '฿500 – ฿1,500', en: '฿500 – ฿1,500', n: 18 },
-              { th: 'ห่อของขวัญ', en: 'Gift wrap', n: 3 },
-              { th: 'บัตรของขวัญ', en: 'Gift card', n: 1 },
-            ] },
-        ],
-        look: { eyebrow: { th: 'ของขวัญ', en: 'Gifting' }, title: { th: 'ห่อด้วยมือ ส่งด้วยใจ', en: 'Wrapped by hand' }, cta: { th: 'ดูชุดของขวัญ →', en: 'Shop gifts →' } }
-      },
-    };
+    // Category data loaded from data/categories.json (see fetch above)
 
     const tabPanel = document.getElementById('tabPanel');
     const tabCols = document.getElementById('tabCols');
@@ -1374,26 +1279,19 @@
       const data = TAB_DATA[key]; if (!data) return;
       // header row above 3 columns + columns themselves
       tabCols.innerHTML = `
-        <div class="col-span-3 flex items-baseline justify-between border-b hairline pb-3 mb-1">
-          <div>
-            <div class="text-[10px] tracking-[.3em] uppercase text-rattan mb-1" data-th="${data.eyebrow.th}" data-en="${data.eyebrow.en}"></div>
-            <div class="font-serif text-[26px] leading-none" data-th="${data.title.th}" data-en="${data.title.en}"></div>
-          </div>
-          <a href="#collection" class="text-[11px] tracking-[.2em] uppercase underline-grow" data-th="ดูทั้งหมด →" data-en="View all →"></a>
-        </div>
         ${data.cols.map(col => `
           <div>
-            <div class="text-[11px] tracking-[.25em] uppercase text-ink/50 mb-3 pb-2 border-b hairline" data-th="${col.head.th}" data-en="${col.head.en}"></div>
-            <ul class="space-y-2.5 text-[14px]">
+            <div class="text-[14px] font-semibold text-ink mb-6" data-th="${col.head.th}" data-en="${col.head.en}"></div>
+            <ul class="space-y-3 text-[13px] text-ink/75">
               ${col.items.map(it => `
-                <li><a href="#collection" class="group flex items-baseline justify-between gap-3 hover:text-rattan">
-                  <span data-th="${it.th}" data-en="${it.en}"></span>
-                  <span class="font-mono text-[10px] text-ink/35 group-hover:text-rattan/70">${String(it.n).padStart(2,'0')}</span>
-                </a></li>
+                <li><a href="#collection" class="hover:text-rattan" data-th="${it.th}" data-en="${it.en}"></a></li>
               `).join('')}
             </ul>
           </div>
         `).join('')}
+        <div class="col-span-3 mt-10">
+          <a href="#collection" class="text-[11px] tracking-[.2em] uppercase underline-grow" data-th="ดูทั้งหมดในหมวด${data.title.th} →" data-en="View all ${data.title.en} →"></a>
+        </div>
       `;
       // Right lookbook
       tabImageBg.className = `absolute inset-0 ${weaveByTab[key] || 'weave-e'} grain img-zoom`;

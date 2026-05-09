@@ -1,0 +1,148 @@
+{
+  "living": {
+    "eyebrow": { "th": "หมวดหมู่", "en": "Category" },
+    "title": { "th": "ห้องนั่งเล่น", "en": "Living" },
+    "cols": [
+      {
+        "head": { "th": "เฟอร์นิเจอร์", "en": "Furniture" },
+        "items": [
+          { "th": "โซฟาหวาย", "en": "Rattan sofas", "n": 12 },
+          { "th": "เก้าอี้สาน", "en": "Woven chairs", "n": 18 },
+          { "th": "โต๊ะข้าง", "en": "Side tables", "n": 9 },
+          { "th": "ม้านั่งยาว", "en": "Benches", "n": 6 }
+        ]
+      },
+      {
+        "head": { "th": "แสงสว่าง", "en": "Lighting" },
+        "items": [
+          { "th": "โคมไฟแขวน", "en": "Pendant lamps", "n": 14 },
+          { "th": "โคมไฟตั้งพื้น", "en": "Floor lamps", "n": 7 },
+          { "th": "โคมไฟตั้งโต๊ะ", "en": "Table lamps", "n": 11 }
+        ]
+      },
+      {
+        "head": { "th": "ของแต่งห้อง", "en": "Room accents" },
+        "items": [
+          { "th": "พรมกก", "en": "Sedge rugs", "n": 8 },
+          { "th": "หมอนอิง", "en": "Cushions", "n": 16 },
+          { "th": "กรอบรูปสาน", "en": "Woven frames", "n": 10 },
+          { "th": "แจกันสาน", "en": "Woven vases", "n": 12 }
+        ]
+      }
+    ],
+    "look": {
+      "eyebrow": { "th": "คอลเลกชั่นแนะนำ", "en": "Featured drop" },
+      "title": { "th": "ฤดูฝน 2569", "en": "Monsoon 2026" },
+      "cta": { "th": "ดูคอลเลกชั่น →", "en": "Shop the drop →" }
+    }
+  },
+  "kitchen": {
+    "eyebrow": { "th": "หมวดหมู่", "en": "Category" },
+    "title": { "th": "ครัว & โต๊ะอาหาร", "en": "Kitchen & dining" },
+    "cols": [
+      {
+        "head": { "th": "งานสาน บนโต๊ะ", "en": "On the table" },
+        "items": [
+          { "th": "เสื่อรองจาน", "en": "Placemats", "n": 22 },
+          { "th": "รองแก้ว", "en": "Coasters", "n": 14 },
+          { "th": "รองหม้อ", "en": "Trivets", "n": 8 }
+        ]
+      },
+      {
+        "head": { "th": "ถาดเสิร์ฟ", "en": "Trays & boards" },
+        "items": [
+          { "th": "ถาดไม้ไผ่", "en": "Bamboo trays", "n": 11 },
+          { "th": "ถาดกลม", "en": "Round trays", "n": 7 },
+          { "th": "ถาดเสิร์ฟชา", "en": "Tea service trays", "n": 5 }
+        ]
+      },
+      {
+        "head": { "th": "ตะกร้า", "en": "Baskets" },
+        "items": [
+          { "th": "ตะกร้าผลไม้", "en": "Fruit baskets", "n": 9 },
+          { "th": "ตะกร้าขนมปัง", "en": "Bread baskets", "n": 6 },
+          { "th": "ฝาชี", "en": "Food covers", "n": 4 }
+        ]
+      }
+    ],
+    "look": {
+      "eyebrow": { "th": "งานคราฟต์ใหม่", "en": "New craft" },
+      "title": { "th": "โต๊ะอาหารฤดูแล้ง", "en": "Dry-season table" },
+      "cta": { "th": "จัดโต๊ะใหม่ →", "en": "Set the table →" }
+    }
+  },
+  "storage": {
+    "eyebrow": { "th": "หมวดหมู่", "en": "Category" },
+    "title": { "th": "กระเช้า & จัดเก็บ", "en": "Storage" },
+    "cols": [
+      {
+        "head": { "th": "ตามขนาด", "en": "By size" },
+        "items": [
+          { "th": "ใบเล็ก (S)", "en": "Small (S)", "n": 18 },
+          { "th": "ใบกลาง (M)", "en": "Medium (M)", "n": 24 },
+          { "th": "ใบใหญ่ (L)", "en": "Large (L)", "n": 12 },
+          { "th": "ทรงสูง", "en": "Tall", "n": 7 }
+        ]
+      },
+      {
+        "head": { "th": "ตามวัสดุ", "en": "By material" },
+        "items": [
+          { "th": "หวาย", "en": "Rattan", "n": 28 },
+          { "th": "ไม้ไผ่", "en": "Bamboo", "n": 19 },
+          { "th": "ผักตบชวา", "en": "Water hyacinth", "n": 22 },
+          { "th": "กก", "en": "Sedge", "n": 11 }
+        ]
+      },
+      {
+        "head": { "th": "ตามการใช้", "en": "By use" },
+        "items": [
+          { "th": "จัดเก็บผ้า", "en": "Laundry", "n": 8 },
+          { "th": "ห้องเด็ก", "en": "Kids room", "n": 6 },
+          { "th": "ตะกร้ามีฝา", "en": "Lidded baskets", "n": 9 },
+          { "th": "ที่จัดของในตู้", "en": "Closet organisers", "n": 14 }
+        ]
+      }
+    ],
+    "look": {
+      "eyebrow": { "th": "คู่มือจัดบ้าน", "en": "Organising guide" },
+      "title": { "th": "จัดบ้านให้สงบ", "en": "A quieter home" },
+      "cta": { "th": "อ่านคู่มือ →", "en": "Read the guide →" }
+    }
+  },
+  "accessories": {
+    "eyebrow": { "th": "หมวดหมู่", "en": "Category" },
+    "title": { "th": "ของแต่งบ้าน", "en": "Accessories" },
+    "cols": [
+      {
+        "head": { "th": "เครื่องแต่งกาย", "en": "Carry" },
+        "items": [
+          { "th": "กระเป๋าหวาย", "en": "Rattan bags", "n": 14 },
+          { "th": "กระเป๋าผักตบ", "en": "Hyacinth totes", "n": 9 },
+          { "th": "หมวกสาน", "en": "Woven hats", "n": 6 }
+        ]
+      },
+      {
+        "head": { "th": "ของแต่งบ้าน", "en": "Home decor" },
+        "items": [
+          { "th": "พัดสาน", "en": "Hand fans", "n": 8 },
+          { "th": "ที่คั่นหนังสือ", "en": "Bookmarks", "n": 5 },
+          { "th": "งานแขวนผนัง", "en": "Wall pieces", "n": 11 }
+        ]
+      },
+      {
+        "head": { "th": "ของขวัญ", "en": "Gifting" },
+        "items": [
+          { "th": "ต่ำกว่า ฿500", "en": "Under ฿500", "n": 12 },
+          { "th": "฿500 – ฿1,500", "en": "฿500 – ฿1,500", "n": 18 },
+          { "th": "ห่อของขวัญ", "en": "Gift wrap", "n": 3 },
+          { "th": "บัตรของขวัญ", "en": "Gift card", "n": 1 }
+        ]
+      }
+    ],
+    "look": {
+      "eyebrow": { "th": "ของขวัญ", "en": "Gifting" },
+      "title": { "th": "ห่อด้วยมือ ส่งด้วยใจ", "en": "Wrapped by hand" },
+      "cta": { "th": "ดูชุดของขวัญ →", "en": "Shop gifts →" }
+    }
+  }
+}

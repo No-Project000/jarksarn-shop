@@ -1,0 +1,82 @@
+# Sveltia CMS configuration for Jarksarn shop
+# Setup guide:
+#   1. Create a GitHub OAuth App at https://github.com/settings/developers
+#      - Application name: Jarksarn CMS
+#      - Homepage URL: https://no-project000.github.io/jarksarn-shop/
+#      - Authorization callback URL: https://auth.sveltia.dev/callback
+#   2. Copy the Client ID and paste it below as the value of `app_id`
+#   3. Commit + push. GitHub Pages will redeploy.
+#   4. Visit https://no-project000.github.io/jarksarn-shop/admin/ and sign in.
+
+backend:
+  name: github
+  repo: no-project000/jarksarn-shop
+  branch: main
+  base_url: https://auth.sveltia.dev
+  app_id: Ov23lijdFosRXFVw9vb0
+
+publish_mode: simple
+
+# Where uploaded images are stored in the repo
+media_folder: images/products
+public_folder: /jarksarn-shop/images/products
+
+collections:
+  - name: catalog
+    label: 'สินค้า (Catalog)'
+    files:
+      - file: data/products.json
+        name: products
+        label: 'รายการสินค้า — Products'
+        fields:
+          - name: products
+            label: สินค้าทั้งหมด
+            label_singular: สินค้า
+            widget: list
+            summary: '{{fields.th}}  ·  ฿{{fields.price}}  ({{fields.sku}})'
+            fields:
+              - { name: id, label: ID, widget: number, value_type: int, hint: เลขลำดับ unique ใช้ภายใน }
+              - { name: sku, label: SKU, widget: string, hint: 'รูปแบบ JKS-XXXX' }
+              - { name: th, label: 'ชื่อสินค้า (TH)', widget: string }
+              - { name: en, label: 'Name (EN)', widget: string }
+              - { name: price, label: 'ราคา (THB)', widget: number, value_type: int }
+              - { name: was, label: 'ราคาก่อนลด (optional)', widget: number, value_type: int, required: false }
+              - name: cat
+                label: หมวด (Category)
+                widget: select
+                options:
+                  - { label: 'ห้องนั่งเล่น (Living)', value: living }
+                  - { label: 'ครัว & โต๊ะอาหาร (Kitchen)', value: kitchen }
+                  - { label: 'กระเช้า & จัดเก็บ (Storage)', value: storage }
+                  - { label: 'ของแต่งบ้าน (Accessories)', value: accessories }
+              - name: mat
+                label: 'วัสดุ (Material)'
+                widget: select
+                options:
+                  - { label: 'หวาย (Rattan)', value: rattan }
+                  - { label: 'ไม้ไผ่ (Bamboo)', value: bamboo }
+                  - { label: 'ผักตบชวา (Water hyacinth)', value: hyacinth }
+                  - { label: 'กก (Sedge)', value: sedge }
+              - name: tone
+                label: เฉดสี (Tone)
+                widget: select
+                options: [Natural, Sand, Smoked, Bone, Rattan]
+              - name: weave
+                label: Placeholder pattern
+                widget: select
+                hint: ใช้แทนรูปจริง ถ้ายังไม่มีรูป (จะเปลี่ยนเป็นรูปจริงใน images ด้านล่าง)
+                options: [weave-a, weave-b, weave-c, weave-d, weave-e, weave-f]
+              - { name: opts, label: 'จำนวนตัวเลือก (size/tone variations)', widget: number, value_type: int }
+              - name: badge
+                label: 'Badge (optional)'
+                widget: select
+                options: ['', Bestseller, New, Limited]
+                required: false
+                default: ''
+              - name: images
+                label: รูปภาพ
+                widget: list
+                allow_add: true
+                summary: '{{fields.image}}'
+                fields:
+                  - { name: image, label: 'รูป', widget: image }

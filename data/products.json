@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "opts": 3,
+      "opts": 1,
       "mat": "rattan",
       "weave": "weave-a",
       "badge": "Bestseller",
@@ -11,7 +11,6 @@
       "tone": "Natural",
       "th": "กระเช้าหวายทรงสูง",
       "cat": "living",
-      "subcat": "room-accents",
       "images": [
         {
           "image": "/images/products/chatgpt-image-may-9-2026-05_22_59-pm.png"
@@ -32,7 +31,6 @@
       "tone": "Sand",
       "th": "เสื่อกกลายไทย",
       "cat": "living",
-      "subcat": "room-accents",
       "images": [],
       "id": 2,
       "sku": "JKS-0712"
@@ -47,7 +45,6 @@
       "tone": "Smoked",
       "th": "โคมไฟไม้ไผ่แขวน",
       "cat": "living",
-      "subcat": "lighting",
       "images": [],
       "id": 3,
       "sku": "JKS-2208"
@@ -61,7 +58,6 @@
       "tone": "Natural",
       "th": "ตะกร้าผลไม้ผักตบ",
       "cat": "kitchen",
-      "subcat": "baskets",
       "images": [],
       "id": 4,
       "sku": "JKS-0418"
@@ -75,7 +71,6 @@
       "tone": "Natural",
       "th": "กระเป๋าหวายสาน",
       "cat": "accessories",
-      "subcat": "carry",
       "images": [],
       "id": 5,
       "sku": "JKS-1530"
@@ -89,7 +84,6 @@
       "tone": "Smoked",
       "th": "ถาดเสิร์ฟไม้ไผ่",
       "cat": "kitchen",
-      "subcat": "trays",
       "images": [],
       "id": 6,
       "sku": "JKS-0309"
@@ -104,7 +98,6 @@
       "tone": "Sand",
       "th": "โต๊ะข้างหวาย",
       "cat": "living",
-      "subcat": "furniture",
       "images": [],
       "id": 7,
       "sku": "JKS-1840"
@@ -118,7 +111,6 @@
       "tone": "Natural",
       "th": "ตะกร้าผ้าหวายใหญ่",
       "cat": "living",
-      "subcat": "room-accents",
       "images": [],
       "id": 8,
       "sku": "JKS-1110"
@@ -132,7 +124,6 @@
       "tone": "Sand",
       "th": "ที่รองแก้วผักตบ",
       "cat": "kitchen",
-      "subcat": "on-table",
       "images": [],
       "id": 9,
       "sku": "JKS-0625"
@@ -146,7 +137,6 @@
       "tone": "Natural",
       "th": "แจกันสานไม้ไผ่",
       "cat": "living",
-      "subcat": "room-accents",
       "images": [],
       "id": 10,
       "sku": "JKS-1402"
@@ -160,7 +150,6 @@
       "tone": "Sand",
       "th": "เสื่อรองจานกก",
       "cat": "kitchen",
-      "subcat": "on-table",
       "images": [],
       "id": 11,
       "sku": "JKS-0205"
@@ -174,7 +163,6 @@
       "tone": "Natural",
       "th": "กระเช้าจัดเก็บกลาง",
       "cat": "living",
-      "subcat": "room-accents",
       "images": [],
       "id": 12,
       "sku": "JKS-2901"

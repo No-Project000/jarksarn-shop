@@ -1101,11 +1101,22 @@
   const fmt = (n) => '฿' + n.toLocaleString('en-US');
 
   // ----- PRODUCT CARD -----
+  function productImage(p) {
+    if (p.images && p.images.length > 0) {
+      const first = p.images[0];
+      const url = typeof first === 'string' ? first : first.image;
+      if (url) return url;
+    }
+    return null;
+  }
   function card(p, big=false) {
+    const img = productImage(p);
+    const bgClass = img ? '' : (p.weave || 'weave-a');
+    const bgStyle = img ? `style="background-image:url('${img}');background-size:cover;background-position:center"` : '';
     return `
       <a href="#product" data-go-product="${p.id}" class="group block">
-        <div class="relative overflow-hidden ${p.weave} grain ${big? 'aspect-[4/5]' : 'aspect-[4/5]'}">
-          <div class="absolute inset-0 img-zoom ${p.weave}"></div>
+        <div class="relative overflow-hidden ${bgClass} grain aspect-[4/5]">
+          <div class="absolute inset-0 img-zoom ${bgClass}" ${bgStyle}></div>
           <span class="absolute top-3 left-3 font-mono text-[10px] tracking-[.2em] text-ink/60">${p.sku}</span>
           ${p.badge? `<span class="absolute top-3 right-3 bg-paper/90 px-2 py-1 text-[10px] tracking-[.18em] uppercase">${p.badge}</span>`:''}
           <button class="absolute bottom-3 right-3 w-9 h-9 bg-paper grid place-items-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all" aria-label="quick add" onclick="event.preventDefault(); event.stopPropagation(); addToBag(${p.id});">

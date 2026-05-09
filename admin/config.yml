@@ -1,22 +1,30 @@
 # Decap CMS configuration for Jarksarn shop
-# Auth: Netlify Identity + Git Gateway
+# Auth: GitHub OAuth via self-hosted Cloudflare Worker (free, unlimited)
 # Setup steps:
-#   1. Site is connected to Netlify (auto-deploy from GitHub)
-#   2. Netlify dashboard → Identity → Enable
-#   3. Netlify dashboard → Identity → Services → Git Gateway → Enable
-#   4. Identity → Invite users → invite yourself
-#   5. Click invite link in email → set password → redirected to /admin/
+#   1. Deploy Sveltia CMS Auth Worker:
+#      https://github.com/sveltia/sveltia-cms-auth → "Deploy to Cloudflare Workers" button
+#   2. In Cloudflare Worker settings, set env vars:
+#        GITHUB_CLIENT_ID     = your GitHub OAuth App Client ID
+#        GITHUB_CLIENT_SECRET = your GitHub OAuth App Client Secret
+#   3. Get Worker URL (e.g., https://sveltia-cms-auth.YOURNAME.workers.dev)
+#   4. In GitHub OAuth App: update Authorization callback URL to {worker_url}/callback
+#   5. Replace YOUR_WORKER_URL_HERE below with your Worker URL
+#   6. Push commit → GitHub Pages auto-deploys
+#   7. Visit https://no-project000.github.io/jarksarn-shop/admin/ → "Login with GitHub"
 
 backend:
-  name: git-gateway
+  name: github
+  repo: no-project000/jarksarn-shop
   branch: main
+  base_url: https://sveltia-cms-auth.kaweewat-chat.workers.dev
+  auth_endpoint: auth
 
 publish_mode: simple
 
 # Where uploaded images are stored in the repo (relative to root)
 media_folder: images/products
-# Public URL prefix used to embed images in product pages
-public_folder: /images/products
+# Public URL prefix used to embed images in product pages (GH Pages serves from /jarksarn-shop/)
+public_folder: /jarksarn-shop/images/products
 
 collections:
   - name: catalog

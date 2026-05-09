@@ -1400,14 +1400,79 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('hidden', p.dataset.panel !== target));
     }));
 
-    // PDP gallery thumbs
+    // ----- PDP renderer (data-driven from PRODUCTS) -----
+    function renderProduct(p) {
+      if (!p) return;
+      const images = (p.images || []).map(i => typeof i === 'string' ? i : i.image).filter(Boolean);
+      const mainShot = document.getElementById('mainShot');
+      const thumbs = document.querySelectorAll('.thumb');
+      const fallbackWeaves = ['weave-a','weave-c','weave-b','weave-f','weave-e'];
+      const allWeaves = ['weave-a','weave-b','weave-c','weave-d','weave-e','weave-f'];
+
+      // Update breadcrumb + SKU label inside main shot
+      const crumb = document.getElementById('pdpCrumb');
+      if (crumb) crumb.textContent = p.th || p.en || '';
+
+      // Main shot — use first image if available
+      allWeaves.forEach(c => mainShot.classList.remove(c));
+      const svgInside = mainShot.querySelector('svg');
+      if (images.length > 0) {
+        mainShot.style.backgroundImage = `url('${images[0]}')`;
+        mainShot.style.backgroundSize = 'cover';
+        mainShot.style.backgroundPosition = 'center';
+        if (svgInside) svgInside.style.display = 'none';
+      } else {
+        mainShot.style.backgroundImage = '';
+        mainShot.classList.add(p.weave || 'weave-a');
+        if (svgInside) svgInside.style.display = '';
+      }
+
+      // Thumbnails — show one per uploaded image; fall back to weave placeholders if fewer images
+      thumbs.forEach((t, i) => {
+        allWeaves.forEach(c => t.classList.remove(c));
+        t.style.backgroundImage = '';
+        if (images[i]) {
+          t.style.backgroundImage = `url('${images[i]}')`;
+          t.style.backgroundSize = 'cover';
+          t.style.backgroundPosition = 'center';
+          t.style.display = '';
+        } else if (images.length === 0) {
+          // No uploaded images at all — keep all 5 weave thumbs as decorative fallback
+          t.classList.add(fallbackWeaves[i] || 'weave-a');
+          t.style.display = '';
+        } else {
+          // Hide extra thumbs when fewer images than thumb slots
+          t.style.display = 'none';
+        }
+        // Reset ring
+        t.classList.remove('ring-ink'); t.classList.add('ring-line');
+        if (i === 0) { t.classList.remove('ring-line'); t.classList.add('ring-ink'); }
+      });
+    }
+
+    let currentProduct = null;
+
+    // PDP gallery thumbs (click to swap main shot)
     document.querySelectorAll('.thumb').forEach(t => t.addEventListener('click', () => {
       document.querySelectorAll('.thumb').forEach(x => { x.classList.remove('ring-ink'); x.classList.add('ring-line'); });
       t.classList.remove('ring-line'); t.classList.add('ring-ink');
       const m = document.getElementById('mainShot');
-      const cls = ['weave-a','weave-b','weave-c','weave-d','weave-e','weave-f'];
-      cls.forEach(c => m.classList.remove(c));
-      m.classList.add(['weave-a','weave-c','weave-b','weave-f','weave-e'][parseInt(t.dataset.i,10)]);
+      const idx = parseInt(t.dataset.i, 10);
+      const allWeaves = ['weave-a','weave-b','weave-c','weave-d','weave-e','weave-f'];
+      const fallbackWeaves = ['weave-a','weave-c','weave-b','weave-f','weave-e'];
+      const images = (currentProduct?.images || []).map(i => typeof i === 'string' ? i : i.image).filter(Boolean);
+      const svgInside = m.querySelector('svg');
+      allWeaves.forEach(c => m.classList.remove(c));
+      if (images[idx]) {
+        m.style.backgroundImage = `url('${images[idx]}')`;
+        m.style.backgroundSize = 'cover';
+        m.style.backgroundPosition = 'center';
+        if (svgInside) svgInside.style.display = 'none';
+      } else {
+        m.style.backgroundImage = '';
+        m.classList.add(fallbackWeaves[idx] || 'weave-a');
+        if (svgInside) svgInside.style.display = '';
+      }
     }));
 
     // Product link interception
@@ -1415,6 +1480,9 @@
       const t = e.target.closest('[data-go-product]');
       if (t) {
         e.preventDefault();
+        const id = parseInt(t.dataset.goProduct, 10);
+        currentProduct = PRODUCTS.find(x => x.id === id) || null;
+        renderProduct(currentProduct);
         location.hash = '#product';
         showPage('product');
       }

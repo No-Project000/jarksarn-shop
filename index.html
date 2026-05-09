@@ -373,43 +373,43 @@
     </div>
 
     <div class="grid grid-cols-12 gap-6">
-      <a href="#collection" class="col-span-12 md:col-span-7 group block lift">
+      <a href="#collection?cat=living" class="col-span-12 md:col-span-7 group block lift">
         <div class="weave-e grain relative h-[480px] overflow-hidden">
           <div class="absolute inset-0 img-zoom weave-e"></div>
           <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">ROOM 01</span>
           <div class="absolute bottom-0 left-0 p-8 text-ink">
             <div class="font-serif text-[40px] leading-none mb-1" data-th="ห้องนั่งเล่น" data-en="Living"></div>
-            <div class="text-[12px] tracking-wider opacity-70">22 <span data-th="ชิ้น" data-en="pieces"></span></div>
+            <div class="text-[12px] tracking-wider opacity-70" data-th="ดูทั้งหมด" data-en="Shop all"></div>
           </div>
           <span class="absolute bottom-6 right-6 text-[12px] tracking-wider underline-grow">Explore →</span>
         </div>
       </a>
-      <a href="#collection" class="col-span-12 md:col-span-5 group block lift">
+      <a href="#collection?cat=kitchen" class="col-span-12 md:col-span-5 group block lift">
         <div class="weave-c grain relative h-[480px] overflow-hidden">
           <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">ROOM 02</span>
           <div class="absolute bottom-0 left-0 p-8 text-ink">
             <div class="font-serif text-[40px] leading-none mb-1" data-th="ครัว & โต๊ะอาหาร" data-en="Kitchen"></div>
-            <div class="text-[12px] tracking-wider opacity-70">18 <span data-th="ชิ้น" data-en="pieces"></span></div>
+            <div class="text-[12px] tracking-wider opacity-70" data-th="ดูทั้งหมด" data-en="Shop all"></div>
           </div>
           <span class="absolute bottom-6 right-6 text-[12px] tracking-wider underline-grow">Explore →</span>
         </div>
       </a>
-      <a href="#collection" class="col-span-12 md:col-span-5 group block lift">
+      <a href="#collection?cat=storage" class="col-span-12 md:col-span-5 group block lift">
         <div class="weave-d grain relative h-[420px] overflow-hidden">
           <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-paper/80">ROOM 03</span>
           <div class="absolute bottom-0 left-0 p-8 text-paper">
-            <div class="font-serif text-[40px] leading-none mb-1" data-th="ห้องเก็บของ" data-en="Storage"></div>
-            <div class="text-[12px] tracking-wider opacity-80">14 <span data-th="ชิ้น" data-en="pieces"></span></div>
+            <div class="font-serif text-[40px] leading-none mb-1" data-th="กระเช้า & จัดเก็บ" data-en="Storage"></div>
+            <div class="text-[12px] tracking-wider opacity-80" data-th="ดูทั้งหมด" data-en="Shop all"></div>
           </div>
           <span class="absolute bottom-6 right-6 text-[12px] tracking-wider text-paper underline-grow">Explore →</span>
         </div>
       </a>
-      <a href="#collection" class="col-span-12 md:col-span-7 group block lift">
+      <a href="#collection?cat=accessories" class="col-span-12 md:col-span-7 group block lift">
         <div class="weave-f grain relative h-[420px] overflow-hidden">
           <span class="absolute top-4 left-4 font-mono text-[10px] tracking-[.2em] text-ink/60">ROOM 04</span>
           <div class="absolute bottom-0 left-0 p-8 text-ink">
             <div class="font-serif text-[40px] leading-none mb-1" data-th="ของแต่งบ้าน & กระเป๋า" data-en="Accessories"></div>
-            <div class="text-[12px] tracking-wider opacity-70">10 <span data-th="ชิ้น" data-en="pieces"></span></div>
+            <div class="text-[12px] tracking-wider opacity-70" data-th="ดูทั้งหมด" data-en="Shop all"></div>
           </div>
           <span class="absolute bottom-6 right-6 text-[12px] tracking-wider underline-grow">Explore →</span>
         </div>
@@ -476,22 +476,23 @@
 <section class="page" data-page="collection" id="collection">
   <!-- Breadcrumb + hero -->
   <div class="max-w-[1320px] mx-auto px-6 pt-10">
-    <nav class="text-[12px] text-ink/60 mb-6 flex items-center gap-2">
+    <nav class="text-[12px] text-ink/60 mb-6 flex items-center gap-2 flex-wrap" id="colBreadcrumb">
       <a href="#home" class="hover:text-ink">Jarksarn</a><span>/</span>
-      <span data-th="ช้อปทั้งหมด" data-en="Shop all"></span><span>/</span>
-      <span class="text-ink" data-th="ห้องนั่งเล่น" data-en="Living"></span>
+      <a href="#collection" class="hover:text-ink" data-th="ช้อปทั้งหมด" data-en="Shop all"></a>
+      <span class="col-crumb-cat hidden"><span>/</span><a href="#collection" class="hover:text-ink" id="colCrumbCat"></a></span>
+      <span class="col-crumb-sub hidden"><span>/</span><span class="text-ink" id="colCrumbSub"></span></span>
     </nav>
     <div class="grid grid-cols-12 gap-10 items-end pb-12 border-b hairline">
       <div class="col-span-12 lg:col-span-7">
-        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-4">Collection · 01</div>
-        <h1 class="font-serif text-[clamp(48px,7vw,96px)] leading-[0.95] tracking-tight">
-          <span class="lang-th font-thai font-light">ห้องนั่งเล่น<br/><span class="font-serif-it text-rattan italic">อบอุ่น</span> ด้วยมือสาน</span>
-          <span class="lang-en">Living, <span class="font-serif-it text-rattan italic">warmed</span> by hand.</span>
+        <div class="text-[11px] tracking-[.3em] uppercase text-rattan mb-4" id="colEyebrow">Shop all</div>
+        <h1 class="font-serif text-[clamp(48px,7vw,96px)] leading-[1.05] tracking-tight pt-2" id="colTitle">
+          <span class="lang-th font-thai font-light">สินค้าทั้งหมด</span>
+          <span class="lang-en">Shop all</span>
         </h1>
       </div>
       <div class="col-span-12 lg:col-span-4 lg:col-start-9 text-[15px] text-ink/75 leading-[1.7]">
-        <p data-th="22 ชิ้นที่คัดมาเฉพาะห้องนั่งเล่น — โซฟา เก้าอี้ โต๊ะข้าง และโคมไฟไม้ไผ่ที่ทอด้วยลายเฉพาะของบ้านเรา" data-en="A 22-piece edit for the living room — sofas, occasional chairs, side tables, and bamboo lights woven in our house pattern."></p>
-        <div class="mt-4 text-[12px] tracking-[.2em] uppercase text-ink/50">22 <span data-th="ชิ้น" data-en="pieces"></span> · <span data-th="วัสดุ 4 ชนิด" data-en="4 materials"></span></div>
+        <p id="colDescription" data-th="ของจักสานทำมือทุกชิ้น — เลือกตามหมวดที่นาวบาร์ด้านบน" data-en="Every piece woven by hand — pick a category from the nav above."></p>
+        <div class="mt-4 text-[12px] tracking-[.2em] uppercase text-ink/50"><span id="colTotalCount">0</span> <span data-th="ชิ้น" data-en="pieces"></span></div>
       </div>
     </div>
   </div>
@@ -561,9 +562,9 @@
         <div class="flex flex-wrap items-center gap-2 text-[12px]">
           <span class="text-ink/60" data-th="กำลังดู" data-en="Showing"></span>
           <span id="resultCount" class="tabular-nums">12</span>
-          <span class="text-ink/60" data-th="ของ 22 ชิ้น" data-en="of 22 pieces"></span>
-          <span class="text-ink/30 mx-2">|</span>
-          <button class="pill px-2.5 py-1 text-[11px] tracking-wider uppercase">Living ×</button>
+          <span class="text-ink/60"><span data-th="จาก" data-en="of"></span> <span id="colTotalCount2" class="tabular-nums">0</span> <span data-th="ชิ้น" data-en="pieces"></span></span>
+          <span id="colChipsSep" class="text-ink/30 mx-2 hidden">|</span>
+          <span id="colChips" class="flex items-center gap-2"></span>
         </div>
         <div class="flex items-center gap-3 text-[13px]">
           <span class="text-ink/60 text-[12px] tracking-wider uppercase" data-th="เรียงตาม" data-en="Sort"></span>
@@ -1011,11 +1012,11 @@
     <div class="col-span-6 md:col-span-2">
       <div class="text-[11px] tracking-[.2em] uppercase text-sand mb-4" data-th="ช้อป" data-en="Shop"></div>
       <ul class="space-y-2 text-[13px] text-paper/80">
-        <li><a class="underline-grow" href="#collection" data-th="ห้องนั่งเล่น" data-en="Living"></a></li>
-        <li><a class="underline-grow" href="#collection" data-th="ครัวและโต๊ะอาหาร" data-en="Kitchen"></a></li>
-        <li><a class="underline-grow" href="#collection" data-th="กระเช้า & จัดเก็บ" data-en="Storage"></a></li>
-        <li><a class="underline-grow" href="#collection" data-th="ของแต่งบ้าน" data-en="Accessories"></a></li>
-        <li><a class="underline-grow text-sand" href="#collection" data-th="ลดราคา" data-en="Sale"></a></li>
+        <li><a class="underline-grow" href="#collection?cat=living" data-th="ห้องนั่งเล่น" data-en="Living"></a></li>
+        <li><a class="underline-grow" href="#collection?cat=kitchen" data-th="ครัวและโต๊ะอาหาร" data-en="Kitchen"></a></li>
+        <li><a class="underline-grow" href="#collection?cat=storage" data-th="กระเช้า & จัดเก็บ" data-en="Storage"></a></li>
+        <li><a class="underline-grow" href="#collection?cat=accessories" data-th="ของแต่งบ้าน" data-en="Accessories"></a></li>
+        <li><a class="underline-grow" href="#collection" data-th="สินค้าทั้งหมด" data-en="Shop all"></a></li>
       </ul>
     </div>
 
@@ -1142,12 +1143,94 @@
     document.getElementById('featuredGrid').innerHTML =
       [PRODUCTS[0], PRODUCTS[2], PRODUCTS[4], PRODUCTS[5]].map(p => card(p)).join('');
   }
+  // Cat/subcat filter state — set by routeFromHash
+  let CURRENT_FILTER = { cat: null, subcat: null };
+
+  function findSubcatHead(catKey, subcatKey) {
+    if (!catKey || !subcatKey) return null;
+    const cat = window.CATEGORY_DATA?.[catKey];
+    if (!cat) return null;
+    return cat.cols.find(c => c.key === subcatKey);
+  }
+
+  function updateCollectionHero() {
+    const { cat, subcat } = CURRENT_FILTER;
+    const catData = cat ? window.CATEGORY_DATA?.[cat] : null;
+    const subData = findSubcatHead(cat, subcat);
+
+    // Eyebrow + Title + Description
+    const eyebrowEl = document.getElementById('colEyebrow');
+    const titleEl = document.getElementById('colTitle');
+    const descEl = document.getElementById('colDescription');
+
+    if (subData) {
+      eyebrowEl.textContent = (catData?.title?.th || '') + ' · ' + (catData?.title?.en || '');
+      titleEl.innerHTML = `
+        <span class="lang-th font-thai font-light">${subData.head.th}</span>
+        <span class="lang-en">${subData.head.en}</span>`;
+      descEl.dataset.th = `สินค้าในหมวด ${subData.head.th} ของหมวด ${catData?.title?.th || ''}`;
+      descEl.dataset.en = `${subData.head.en} pieces from our ${catData?.title?.en || ''} edit.`;
+    } else if (catData) {
+      eyebrowEl.textContent = `Collection · ${catData.title.en}`;
+      titleEl.innerHTML = `
+        <span class="lang-th font-thai font-light">${catData.title.th}</span>
+        <span class="lang-en">${catData.title.en}</span>`;
+      descEl.dataset.th = `ของจักสานทั้งหมดในหมวด ${catData.title.th}`;
+      descEl.dataset.en = `Every piece in our ${catData.title.en} edit.`;
+    } else {
+      eyebrowEl.textContent = 'Shop all';
+      titleEl.innerHTML = `
+        <span class="lang-th font-thai font-light">สินค้าทั้งหมด</span>
+        <span class="lang-en">Shop all</span>`;
+      descEl.dataset.th = 'ของจักสานทำมือทุกชิ้น เลือกหมวดจาก nav ด้านบน';
+      descEl.dataset.en = 'Every handwoven piece — pick a category from the nav above.';
+    }
+
+    // Breadcrumb
+    const crumbCatWrap = document.querySelector('.col-crumb-cat');
+    const crumbSubWrap = document.querySelector('.col-crumb-sub');
+    if (catData) {
+      crumbCatWrap.classList.remove('hidden');
+      const crumbCat = document.getElementById('colCrumbCat');
+      crumbCat.dataset.th = catData.title.th;
+      crumbCat.dataset.en = catData.title.en;
+      crumbCat.href = `#collection?cat=${cat}`;
+    } else {
+      crumbCatWrap.classList.add('hidden');
+    }
+    if (subData) {
+      crumbSubWrap.classList.remove('hidden');
+      const crumbSub = document.getElementById('colCrumbSub');
+      crumbSub.dataset.th = subData.head.th;
+      crumbSub.dataset.en = subData.head.en;
+    } else {
+      crumbSubWrap.classList.add('hidden');
+    }
+
+    // Filter chips
+    const chipsEl = document.getElementById('colChips');
+    const chipSep = document.getElementById('colChipsSep');
+    chipsEl.innerHTML = '';
+    const chips = [];
+    if (catData) {
+      chips.push(`<button class="pill px-2.5 py-1 text-[11px] tracking-wider uppercase hover:bg-mist" data-clear="cat">${catData.title.en} ×</button>`);
+    }
+    if (subData) {
+      chips.push(`<button class="pill px-2.5 py-1 text-[11px] tracking-wider uppercase hover:bg-mist" data-clear="subcat">${subData.head.en} ×</button>`);
+    }
+    chipsEl.innerHTML = chips.join('');
+    chipSep.classList.toggle('hidden', chips.length === 0);
+  }
+
   function renderCollection() {
     const checked = [...document.querySelectorAll('.filter-mat:checked')].map(c => c.value);
     const max = parseInt(document.getElementById('priceRange').value, 10);
     const sort = document.getElementById('sortSel').value;
+    const { cat, subcat } = CURRENT_FILTER;
 
-    let list = PRODUCTS.filter(p => p.cat==='living' || p.cat==='kitchen' || p.cat==='accessories');
+    let list = PRODUCTS.slice();
+    if (cat) list = list.filter(p => p.cat === cat);
+    if (subcat) list = list.filter(p => p.subcat === subcat);
     list = list.filter(p => p.price <= max);
     if (checked.length) list = list.filter(p => checked.includes(p.mat));
     if (sort.includes('ราคาต่ำ') || sort==='Price ↑') list.sort((a,b)=>a.price-b.price);
@@ -1156,6 +1239,9 @@
 
     document.getElementById('collectionGrid').innerHTML = list.map(p => card(p)).join('');
     document.getElementById('resultCount').textContent = list.length;
+    document.getElementById('colTotalCount').textContent = list.length;
+    document.getElementById('colTotalCount2').textContent = list.length;
+    updateCollectionHero();
     applyLang();
   }
   function renderRelated() {
@@ -1184,12 +1270,25 @@
     document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page===name));
     window.scrollTo({ top:0, behavior:'instant' });
   }
+  function parseHash() {
+    const raw = (location.hash || '#home').replace(/^#/, '');
+    const [path, query] = raw.split('?');
+    const params = new URLSearchParams(query || '');
+    return { path, params };
+  }
   function routeFromHash() {
-    const h = (location.hash || '#home').replace('#','');
+    const { path, params } = parseHash();
     const known = ['home','collection','product','about','footer'];
-    if (h === 'craft') { showPage('home'); setTimeout(()=>document.getElementById('craft').scrollIntoView({behavior:'smooth'}), 30); return; }
-    if (h === 'footer') { /* keep current page; scroll to footer */ document.getElementById('footer').scrollIntoView({behavior:'smooth'}); return; }
-    if (known.includes(h)) showPage(h); else showPage('home');
+    if (path === 'craft') { showPage('home'); setTimeout(()=>document.getElementById('craft').scrollIntoView({behavior:'smooth'}), 30); return; }
+    if (path === 'footer') { document.getElementById('footer').scrollIntoView({behavior:'smooth'}); return; }
+    if (path === 'collection') {
+      CURRENT_FILTER.cat = params.get('cat');
+      CURRENT_FILTER.subcat = params.get('subcat');
+      showPage('collection');
+      if (typeof renderCollection === 'function') renderCollection();
+      return;
+    }
+    if (known.includes(path)) showPage(path); else showPage('home');
   }
   window.addEventListener('hashchange', routeFromHash);
 
@@ -1266,6 +1365,7 @@
       const pData = await pRes.json();
       PRODUCTS = Array.isArray(pData) ? pData : (pData.products || []);
       TAB_DATA = await cRes.json();
+      window.CATEGORY_DATA = TAB_DATA;
     } catch (err) {
       console.error('Failed to load data files', err);
     }
@@ -1292,16 +1392,16 @@
       tabCols.innerHTML = `
         ${data.cols.map(col => `
           <div>
-            <div class="text-[14px] font-semibold text-ink mb-6" data-th="${col.head.th}" data-en="${col.head.en}"></div>
-            <ul class="space-y-3 text-[13px] text-ink/75">
+            <a href="#collection?cat=${key}&subcat=${col.key}" class="text-[14px] font-semibold text-ink mb-6 inline-block hover:text-rattan" data-th="${col.head.th}" data-en="${col.head.en}"></a>
+            <ul class="space-y-3 text-[13px] text-ink/75 mt-2">
               ${col.items.map(it => `
-                <li><a href="#collection" class="hover:text-rattan" data-th="${it.th}" data-en="${it.en}"></a></li>
+                <li><a href="#collection?cat=${key}&subcat=${col.key}" class="hover:text-rattan" data-th="${it.th}" data-en="${it.en}"></a></li>
               `).join('')}
             </ul>
           </div>
         `).join('')}
         <div class="col-span-3 mt-10">
-          <a href="#collection" class="text-[11px] tracking-[.2em] uppercase underline-grow" data-th="ดูทั้งหมดในหมวด${data.title.th} →" data-en="View all ${data.title.en} →"></a>
+          <a href="#collection?cat=${key}" class="text-[11px] tracking-[.2em] uppercase underline-grow" data-th="ดูทั้งหมดในหมวด${data.title.th} →" data-en="View all ${data.title.en} →"></a>
         </div>
       `;
       // Right lookbook
@@ -1330,7 +1430,11 @@
       if (!TAB_DATA[key]) return; // 'new' has no panel
       btn.addEventListener('mouseenter', () => { clearTimeout(tabHoverTimer); openTabPanel(key); });
       btn.addEventListener('focus',      () => { clearTimeout(tabHoverTimer); openTabPanel(key); });
-      btn.addEventListener('click', (e) => { e.preventDefault(); openTabPanel(key); });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeTabPanel();
+        location.hash = `#collection?cat=${key}`;
+      });
     });
     document.getElementById('siteHeader').addEventListener('mouseleave', () => {
       tabHoverTimer = setTimeout(closeTabPanel, 180);
@@ -1488,6 +1592,23 @@
       }
       if (e.target.closest('[data-go="home"]')) {
         // wordmark link — let hash change happen
+      }
+      // Filter chip clear (×)
+      const chip = e.target.closest('[data-clear]');
+      if (chip) {
+        e.preventDefault();
+        const which = chip.dataset.clear;
+        const params = new URLSearchParams();
+        if (which === 'cat') {
+          // clearing cat clears subcat too
+          CURRENT_FILTER.cat = null;
+          CURRENT_FILTER.subcat = null;
+        } else if (which === 'subcat') {
+          CURRENT_FILTER.subcat = null;
+          if (CURRENT_FILTER.cat) params.set('cat', CURRENT_FILTER.cat);
+        }
+        const q = params.toString();
+        location.hash = '#collection' + (q ? '?' + q : '');
       }
     });
 

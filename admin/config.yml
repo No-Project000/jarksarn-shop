@@ -46,6 +46,27 @@ collections:
                   - { label: 'ครัว & โต๊ะอาหาร (Kitchen)', value: kitchen }
                   - { label: 'กระเช้า & จัดเก็บ (Storage)', value: storage }
                   - { label: 'ของแต่งบ้าน (Accessories)', value: accessories }
+              - name: subcat
+                label: หัวข้อใหญ่ (Sub-category)
+                widget: select
+                hint: ต้องเลือกให้ตรงกับ Category ด้านบน (เช่น Living + Furniture)
+                options:
+                  # Living
+                  - { label: 'Living · เฟอร์นิเจอร์', value: furniture }
+                  - { label: 'Living · แสงสว่าง', value: lighting }
+                  - { label: 'Living · ของแต่งห้อง', value: room-accents }
+                  # Kitchen
+                  - { label: 'Kitchen · งานสานบนโต๊ะ', value: on-table }
+                  - { label: 'Kitchen · ถาดเสิร์ฟ', value: trays }
+                  - { label: 'Kitchen · ตะกร้า', value: baskets }
+                  # Storage
+                  - { label: 'Storage · ตามขนาด', value: by-size }
+                  - { label: 'Storage · ตามวัสดุ', value: by-material }
+                  - { label: 'Storage · ตามการใช้', value: by-use }
+                  # Accessories
+                  - { label: 'Accessories · เครื่องแต่งกาย', value: carry }
+                  - { label: 'Accessories · ของแต่งบ้าน', value: home-decor }
+                  - { label: 'Accessories · ของขวัญ', value: gifting }
               - name: mat
                 label: 'วัสดุ (Material)'
                 widget: select

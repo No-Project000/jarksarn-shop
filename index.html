@@ -583,15 +583,10 @@
 
       <div id="collectionGrid" class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12"></div>
 
-      <!-- Pagination -->
-      <div class="flex items-center justify-between mt-16 pt-8 border-t hairline text-[13px]">
+      <!-- Pagination (auto-hidden when all items fit on one page) -->
+      <div class="flex items-center justify-between mt-16 pt-8 border-t hairline text-[13px] hidden" id="colPagination">
         <button class="text-ink/40 cursor-not-allowed">← <span data-th="ก่อนหน้า" data-en="Previous"></span></button>
-        <div class="flex items-center gap-1">
-          <button class="w-8 h-8 bg-ink text-paper">1</button>
-          <button class="w-8 h-8 hover:bg-mist">2</button>
-          <span class="text-ink/40">…</span>
-          <button class="w-8 h-8 hover:bg-mist">4</button>
-        </div>
+        <div class="flex items-center gap-1" id="colPaginationPages"></div>
         <button class="underline-grow"><span data-th="ถัดไป" data-en="Next"></span> →</button>
       </div>
     </div>
@@ -1241,6 +1236,24 @@
     document.getElementById('resultCount').textContent = list.length;
     document.getElementById('colTotalCount').textContent = list.length;
     document.getElementById('colTotalCount2').textContent = list.length;
+
+    // Pagination — hide when all items fit on one page (PAGE_SIZE = 24)
+    const PAGE_SIZE = 24;
+    const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+    const pagination = document.getElementById('colPagination');
+    if (totalPages <= 1) {
+      pagination.classList.add('hidden');
+    } else {
+      pagination.classList.remove('hidden');
+      const pagesEl = document.getElementById('colPaginationPages');
+      const pages = [];
+      for (let i = 1; i <= totalPages; i++) {
+        const cls = i === 1 ? 'bg-ink text-paper' : 'hover:bg-mist';
+        pages.push(`<button class="w-8 h-8 ${cls}">${i}</button>`);
+      }
+      pagesEl.innerHTML = pages.join('');
+    }
+
     updateCollectionHero();
     applyLang();
   }

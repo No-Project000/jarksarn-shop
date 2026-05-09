@@ -1,25 +1,22 @@
-# Sveltia CMS configuration for Jarksarn shop
-# Setup guide:
-#   1. Create a GitHub OAuth App at https://github.com/settings/developers
-#      - Application name: Jarksarn CMS
-#      - Homepage URL: https://no-project000.github.io/jarksarn-shop/
-#      - Authorization callback URL: https://auth.sveltia.dev/callback
-#   2. Copy the Client ID and paste it below as the value of `app_id`
-#   3. Commit + push. GitHub Pages will redeploy.
-#   4. Visit https://no-project000.github.io/jarksarn-shop/admin/ and sign in.
+# Decap CMS configuration for Jarksarn shop
+# Auth: Netlify Identity + Git Gateway
+# Setup steps:
+#   1. Site is connected to Netlify (auto-deploy from GitHub)
+#   2. Netlify dashboard → Identity → Enable
+#   3. Netlify dashboard → Identity → Services → Git Gateway → Enable
+#   4. Identity → Invite users → invite yourself
+#   5. Click invite link in email → set password → redirected to /admin/
 
 backend:
-  name: github
-  repo: no-project000/jarksarn-shop
+  name: git-gateway
   branch: main
-  base_url: https://auth.sveltia.dev
-  app_id: Ov23lijdFosRXFVw9vb0
 
 publish_mode: simple
 
-# Where uploaded images are stored in the repo
+# Where uploaded images are stored in the repo (relative to root)
 media_folder: images/products
-public_folder: /jarksarn-shop/images/products
+# Public URL prefix used to embed images in product pages
+public_folder: /images/products
 
 collections:
   - name: catalog
